@@ -262,13 +262,6 @@
             "link": ""
           }
         },
-        "ig_5": {
-          "type": "image",
-          "settings": {
-            "image_alt": "",
-            "link": ""
-          }
-        },
         "ig_6": {
           "type": "image",
           "settings": {
@@ -282,7 +275,6 @@
         "ig_2",
         "ig_3",
         "ig_4",
-        "ig_5",
         "ig_6"
       ],
       "settings": {
@@ -291,7 +283,7 @@
         "subheading": "Share your style with us using our hashtag.",
         "instagram_handle": "",
         "profile_link": "https://www.instagram.com/hudabeauty/?hl=en",
-        "columns": 6,
+        "columns": 5,
         "columns_mobile": "3",
         "background_color": "#ffffff",
         "text_color": "#1a1a1a",

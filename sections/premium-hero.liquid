@@ -32,25 +32,27 @@
     <div class="premium-hero__overlay"></div>
   </div>
 
-  <div class="page-width premium-hero__content">
-    <div class="premium-hero__text premium-hero__text--{{ section.settings.text_alignment }}">
-      {% if section.settings.eyebrow != blank %}
-        <span class="premium-section__eyebrow">{{ section.settings.eyebrow }}</span>
-      {% endif %}
-      {% if section.settings.heading != blank %}
-        <h1 class="premium-section__heading">{{ section.settings.heading }}</h1>
-      {% endif %}
-      {% if section.settings.subheading != blank %}
-        <p class="premium-section__subheading">{{ section.settings.subheading }}</p>
-      {% endif %}
-      {% if section.settings.button_label != blank %}
-        <a
-          href="{{ section.settings.button_link }}"
-          class="premium-btn premium-btn--{{ section.settings.button_style }}"
-        >
-          {{ section.settings.button_label }}
-        </a>
-      {% endif %}
+  <div class="premium-hero__content">
+    <div class="page-width">
+      <div class="premium-hero__text premium-hero__text--{{ section.settings.text_alignment }}">
+        {% if section.settings.eyebrow != blank %}
+          <span class="premium-section__eyebrow">{{ section.settings.eyebrow }}</span>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h1 class="premium-section__heading">{{ section.settings.heading }}</h1>
+        {% endif %}
+        {% if section.settings.subheading != blank %}
+          <p class="premium-section__subheading">{{ section.settings.subheading }}</p>
+        {% endif %}
+        {% if section.settings.button_label != blank %}
+          <a
+            href="{{ section.settings.button_link }}"
+            class="premium-btn premium-btn--{{ section.settings.button_style }}"
+          >
+            {{ section.settings.button_label }}
+          </a>
+        {% endif %}
+      </div>
     </div>
   </div>
 </section>
@@ -88,6 +90,9 @@
     position: relative;
     z-index: 1;
     width: 100%;
+    display: flex;
+    align-items: center;
+    min-height: inherit;
   }
 
   .premium-hero__text {

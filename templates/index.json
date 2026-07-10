@@ -21,7 +21,7 @@
         "image": "shopify://shop_images/beauty-banner-right.png",
         "image_alt": "",
         "overlay_color": "#000000",
-        "overlay_opacity": 15,
+        "overlay_opacity": 35,
         "text_alignment": "left",
         "content_max_width": 560,
         "min_height": 80,
@@ -38,7 +38,7 @@
         "col_beauty": {
           "type": "collection",
           "settings": {
-            "collection": "beauty-products",
+            "collection": "",
             "title": "Beauty Products",
             "description": "Skincare, makeup & wellness",
             "image_alt": "",
@@ -48,7 +48,7 @@
         "col_inner": {
           "type": "collection",
           "settings": {
-            "collection": "inner-wear",
+            "collection": "",
             "title": "Inner Garments",
             "description": "Comfort meets elegance",
             "image_alt": "",
@@ -58,7 +58,7 @@
         "col_new": {
           "type": "collection",
           "settings": {
-            "collection": "new-arrivals",
+            "collection": "",
             "title": "New Arrivals",
             "description": "Fresh picks for the season",
             "image_alt": "",
@@ -68,7 +68,7 @@
         "col_sale": {
           "type": "collection",
           "settings": {
-            "collection": "best-sellers",
+            "collection": "",
             "title": "Sale",
             "description": "Limited-time offers",
             "image_alt": "",

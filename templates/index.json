@@ -18,8 +18,10 @@
         "button_label": "Shop Now",
         "button_link": "shopify://collections/all",
         "button_style": "primary",
+        "image": "shopify://shop_images/beauty-banner.png",
+        "image_alt": "",
+        "overlay_color": "#000000",
         "overlay_opacity": 35,
-        "section_width": "narrow",
         "text_alignment": "left",
         "content_max_width": 560,
         "min_height": 80,
@@ -36,33 +38,50 @@
         "col_beauty": {
           "type": "collection",
           "settings": {
+            "collection": "",
             "title": "Beauty Products",
-            "description": "Skincare, makeup & wellness"
+            "description": "Skincare, makeup & wellness",
+            "image_alt": "",
+            "link": ""
           }
         },
         "col_inner": {
           "type": "collection",
           "settings": {
+            "collection": "",
             "title": "Inner Garments",
-            "description": "Comfort meets elegance"
+            "description": "Comfort meets elegance",
+            "image_alt": "",
+            "link": ""
           }
         },
         "col_new": {
           "type": "collection",
           "settings": {
+            "collection": "",
             "title": "New Arrivals",
-            "description": "Fresh picks for the season"
+            "description": "Fresh picks for the season",
+            "image_alt": "",
+            "link": ""
           }
         },
         "col_sale": {
           "type": "collection",
           "settings": {
+            "collection": "",
             "title": "Sale",
-            "description": "Limited-time offers"
+            "description": "Limited-time offers",
+            "image_alt": "",
+            "link": ""
           }
         }
       },
-      "block_order": ["col_beauty", "col_inner", "col_new", "col_sale"],
+      "block_order": [
+        "col_beauty",
+        "col_inner",
+        "col_new",
+        "col_sale"
+      ],
       "settings": {
         "eyebrow": "Shop by Category",
         "heading": "Curated Collections",
@@ -87,6 +106,7 @@
         "collection": "all",
         "products_to_show": 4,
         "button_label": "View All",
+        "button_link": "",
         "columns": 4,
         "columns_mobile": "2",
         "image_ratio": "4/5",
@@ -102,6 +122,7 @@
         "trust_1": {
           "type": "trust_item",
           "settings": {
+            "icon_alt": "",
             "title": "Free Shipping",
             "description": "On orders over $75"
           }
@@ -109,6 +130,7 @@
         "trust_2": {
           "type": "trust_item",
           "settings": {
+            "icon_alt": "",
             "title": "Easy Returns",
             "description": "30-day hassle-free returns"
           }
@@ -116,6 +138,7 @@
         "trust_3": {
           "type": "trust_item",
           "settings": {
+            "icon_alt": "",
             "title": "Secure Checkout",
             "description": "256-bit SSL encryption"
           }
@@ -123,12 +146,18 @@
         "trust_4": {
           "type": "trust_item",
           "settings": {
+            "icon_alt": "",
             "title": "Premium Quality",
             "description": "Crafted with care"
           }
         }
       },
-      "block_order": ["trust_1", "trust_2", "trust_3", "trust_4"],
+      "block_order": [
+        "trust_1",
+        "trust_2",
+        "trust_3",
+        "trust_4"
+      ],
       "settings": {
         "heading": "Why shop with us",
         "background_color": "#f5f5f5",
@@ -168,7 +197,11 @@
           }
         }
       },
-      "block_order": ["review_1", "review_2", "review_3"],
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3"
+      ],
       "settings": {
         "eyebrow": "Testimonials",
         "heading": "What Our Customers Say",
@@ -185,9 +218,11 @@
         "eyebrow": "Journal",
         "heading": "From the Blog",
         "subheading": "Tips, trends, and stories from our world.",
+        "blog": "",
         "posts_to_show": 3,
         "show_excerpt": true,
         "button_label": "Read More",
+        "button_link": "",
         "image_ratio": "16/9",
         "background_color": "#ffffff",
         "text_color": "#1a1a1a",
@@ -201,6 +236,7 @@
         "eyebrow": "Stay Connected",
         "heading": "Join Our Newsletter",
         "subheading": "Be the first to know about new arrivals, exclusive offers, and style inspiration.",
+        "email_label": "Email address",
         "email_placeholder": "Enter your email",
         "button_label": "Subscribe",
         "success_message": "Thank you for subscribing!",
@@ -216,19 +252,63 @@
     "premium_instagram": {
       "type": "premium-instagram-feed",
       "blocks": {
-        "ig_1": { "type": "image", "settings": {} },
-        "ig_2": { "type": "image", "settings": {} },
-        "ig_3": { "type": "image", "settings": {} },
-        "ig_4": { "type": "image", "settings": {} },
-        "ig_5": { "type": "image", "settings": {} },
-        "ig_6": { "type": "image", "settings": {} }
+        "ig_1": {
+          "type": "image",
+          "settings": {
+            "image_alt": "",
+            "link": ""
+          }
+        },
+        "ig_2": {
+          "type": "image",
+          "settings": {
+            "image_alt": "",
+            "link": ""
+          }
+        },
+        "ig_3": {
+          "type": "image",
+          "settings": {
+            "image_alt": "",
+            "link": ""
+          }
+        },
+        "ig_4": {
+          "type": "image",
+          "settings": {
+            "image_alt": "",
+            "link": ""
+          }
+        },
+        "ig_5": {
+          "type": "image",
+          "settings": {
+            "image_alt": "",
+            "link": ""
+          }
+        },
+        "ig_6": {
+          "type": "image",
+          "settings": {
+            "image_alt": "",
+            "link": ""
+          }
+        }
       },
-      "block_order": ["ig_1", "ig_2", "ig_3", "ig_4", "ig_5", "ig_6"],
+      "block_order": [
+        "ig_1",
+        "ig_2",
+        "ig_3",
+        "ig_4",
+        "ig_5",
+        "ig_6"
+      ],
       "settings": {
         "eyebrow": "@follow us",
         "heading": "On Instagram",
         "subheading": "Share your style with us using our hashtag.",
         "instagram_handle": "@yourstore",
+        "profile_link": "",
         "columns": 6,
         "columns_mobile": "3",
         "background_color": "#ffffff",

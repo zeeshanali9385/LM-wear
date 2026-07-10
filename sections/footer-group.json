@@ -18,13 +18,8 @@
         "brand_description": "Premium beauty and innerwear essentials — crafted for comfort, confidence, and everyday elegance.",
         "quick_links_heading": "Shop",
         "support_links_heading": "Help",
-        "show_social": true,
-        "copyright_text": "All rights reserved.",
-        "show_payment_icons": true,
         "background_color": "#fafafa",
         "text_color": "#1a1a1a",
-        "muted_text_color": "#666666",
-        "border_color": "#e5e5e5",
         "padding_top": 64,
         "padding_bottom": 32
       }

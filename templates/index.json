@@ -231,25 +231,6 @@
         "padding_bottom": 64
       }
     },
-    "premium_newsletter": {
-      "type": "premium-newsletter",
-      "settings": {
-        "eyebrow": "Stay Connected",
-        "heading": "Join Our Newsletter",
-        "subheading": "Be the first to know about new arrivals, exclusive offers, and style inspiration.",
-        "email_label": "Email address",
-        "email_placeholder": "Enter your email",
-        "button_label": "Subscribe",
-        "success_message": "Thank you for subscribing!",
-        "disclaimer": "By subscribing, you agree to receive marketing emails. Unsubscribe anytime.",
-        "background_color": "#1a1a1a",
-        "text_color": "#ffffff",
-        "button_background": "#ffffff",
-        "button_text_color": "#1a1a1a",
-        "padding_top": 72,
-        "padding_bottom": 72
-      }
-    },
     "premium_instagram": {
       "type": "premium-instagram-feed",
       "blocks": {
@@ -317,6 +298,25 @@
         "padding_top": 64,
         "padding_bottom": 64
       }
+    },
+    "premium_newsletter": {
+      "type": "premium-newsletter",
+      "settings": {
+        "eyebrow": "Stay Connected",
+        "heading": "Join Our Newsletter",
+        "subheading": "Be the first to know about new arrivals, exclusive offers, and style inspiration.",
+        "email_label": "Email address",
+        "email_placeholder": "Enter your email",
+        "button_label": "Subscribe",
+        "success_message": "Thank you for subscribing!",
+        "disclaimer": "By subscribing, you agree to receive marketing emails. Unsubscribe anytime.",
+        "background_color": "#1a1a1a",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#1a1a1a",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
     }
   },
   "order": [
@@ -326,7 +326,7 @@
     "premium_trust_bar",
     "premium_reviews",
     "premium_blog",
-    "premium_newsletter",
-    "premium_instagram"
+    "premium_instagram",
+    "premium_newsletter"
   ]
 }

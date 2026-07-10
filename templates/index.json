@@ -18,7 +18,7 @@
         "button_label": "Shop Now",
         "button_link": "shopify://collections/all",
         "button_style": "primary",
-        "image": "shopify://shop_images/beauty-banner.png",
+        "image": "shopify://shop_images/beauty-banner-right.png",
         "image_alt": "",
         "overlay_color": "#000000",
         "overlay_opacity": 35,

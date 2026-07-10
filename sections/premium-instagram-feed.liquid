@@ -1,5 +1,5 @@
 <section
-  class="premium-section premium-instagram premium-section--narrow"
+  class="premium-section premium-instagram"
   id="PremiumInstagram-{{ section.id }}"
   style="
     background-color: {{ section.settings.background_color }};
@@ -10,7 +10,7 @@
     --premium-grid-cols-mobile: {{ section.settings.columns_mobile }};
   "
 >
-  <div class="premium-section__inner">
+  <div class="page-width">
     <header class="premium-instagram__header">
       {% if section.settings.eyebrow != blank %}
         <span class="premium-section__eyebrow">{{ section.settings.eyebrow }}</span>

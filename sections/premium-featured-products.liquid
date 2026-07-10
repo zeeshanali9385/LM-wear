@@ -4,7 +4,7 @@
 %}
 
 <section
-  class="premium-section premium-featured-products premium-section--narrow"
+  class="premium-section premium-featured-products"
   id="PremiumFeaturedProducts-{{ section.id }}"
   style="
     background-color: {{ section.settings.background_color }};
@@ -16,7 +16,7 @@
     --premium-card-ratio: {{ section.settings.image_ratio }};
   "
 >
-  <div class="premium-section__inner">
+  <div class="page-width">
     <header class="premium-featured-products__header">
       <div>
         {% if section.settings.eyebrow != blank %}

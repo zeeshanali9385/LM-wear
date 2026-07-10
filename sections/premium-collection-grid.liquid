@@ -1,5 +1,5 @@
 <section
-  class="premium-section premium-collection-grid premium-section--narrow"
+  class="premium-section premium-collection-grid"
   id="PremiumCollectionGrid-{{ section.id }}"
   style="
     background-color: {{ section.settings.background_color }};
@@ -11,7 +11,7 @@
     --premium-card-ratio: {{ section.settings.image_ratio }};
   "
 >
-  <div class="premium-section__inner">
+  <div class="page-width">
     <header class="premium-collection-grid__header">
       {% if section.settings.eyebrow != blank %}
         <span class="premium-section__eyebrow">{{ section.settings.eyebrow }}</span>

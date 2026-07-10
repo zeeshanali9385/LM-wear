@@ -1,12 +1,5 @@
-{% liquid
-  assign section_width_class = 'premium-section--narrow'
-  if section.settings.section_width == 'full'
-    assign section_width_class = 'premium-section--full'
-  endif
-%}
-
 <section
-  class="premium-section premium-hero {{ section_width_class }}"
+  class="premium-section premium-hero"
   id="PremiumHero-{{ section.id }}"
   style="
     --premium-hero-min-height: {{ section.settings.min_height }}vh;
@@ -39,8 +32,8 @@
     <div class="premium-hero__overlay"></div>
   </div>
 
-  <div class="premium-section__inner premium-hero__content">
-  <div class="premium-hero__text premium-hero__text--{{ section.settings.text_alignment }}">
+  <div class="page-width premium-hero__content">
+    <div class="premium-hero__text premium-hero__text--{{ section.settings.text_alignment }}">
       {% if section.settings.eyebrow != blank %}
         <span class="premium-section__eyebrow">{{ section.settings.eyebrow }}</span>
       {% endif %}
@@ -201,16 +194,6 @@
     {
       "type": "header",
       "content": "Layout"
-    },
-    {
-      "type": "select",
-      "id": "section_width",
-      "label": "Section width",
-      "options": [
-        { "value": "narrow", "label": "Page width" },
-        { "value": "full", "label": "Full width" }
-      ],
-      "default": "narrow"
     },
     {
       "type": "select",

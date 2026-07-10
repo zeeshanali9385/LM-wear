@@ -1,5 +1,5 @@
 <section
-  class="premium-section premium-reviews premium-section--narrow"
+  class="premium-section premium-reviews"
   id="PremiumReviews-{{ section.id }}"
   style="
     background-color: {{ section.settings.background_color }};
@@ -8,7 +8,7 @@
     padding-bottom: {{ section.settings.padding_bottom }}px;
   "
 >
-  <div class="premium-section__inner">
+  <div class="page-width">
     <header class="premium-reviews__header">
       {% if section.settings.eyebrow != blank %}
         <span class="premium-section__eyebrow">{{ section.settings.eyebrow }}</span>

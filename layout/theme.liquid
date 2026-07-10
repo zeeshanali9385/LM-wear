@@ -45,9 +45,9 @@
     {% render 'premium-contact-widget' %}
 
     <div class="page-wrapper">
-      <div id="header-group">
+      <header id="header-group">
         {% sections 'header-group' %}
-      </div>
+      </header>
 
       <script>
         // Inline header height and menu style calculations to prevent layout shift
@@ -119,7 +119,7 @@
 
       <main
         id="MainContent"
-        class="content-for-layout"
+        class="content-for-layout page-width"
         role="main"
         data-page-transition-enabled="{{ settings.page_transition_enabled }}"
         data-product-transition="{{ settings.transition_to_main_product }}"

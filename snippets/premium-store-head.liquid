@@ -1,0 +1,15 @@
+{% style %}
+  :root {
+    --premium-body-size: {{ settings.premium_body_font_size | default: 17 }}px;
+    --premium-body-size-mobile: {{ settings.premium_body_font_size_mobile | default: 16 }}px;
+    --premium-body-line-height: {{ settings.premium_body_line_height | default: 160 | divided_by: 100.0 }};
+    --premium-h1-size: {{ settings.premium_h1_size | default: 34 }}px;
+    --premium-h1-size-mobile: {{ settings.premium_h1_size_mobile | default: 28 }}px;
+    --premium-h2-size: {{ settings.premium_h2_size | default: 28 }}px;
+    --premium-h2-size-mobile: {{ settings.premium_h2_size_mobile | default: 24 }}px;
+    --premium-h3-size: {{ settings.premium_h3_size | default: 24 }}px;
+    --premium-h3-size-mobile: {{ settings.premium_h3_size_mobile | default: 20 }}px;
+    --premium-widget-accent: {{ settings.contact_widget_accent_color | default: '#1a1a1a' }};
+  }
+{% endstyle %}
+{{ 'premium-store.css' | asset_url | stylesheet_tag: preload: true }}

@@ -214,6 +214,15 @@
               },
               "blocks": {}
             },
+            "size_guide_block": {
+              "type": "size-guide",
+              "settings": {
+                "button_label": "Size Guide",
+                "modal_heading": "Size Guide",
+                "show_when_empty": true
+              },
+              "blocks": {}
+            },
             "buy_buttons_eYQEYi": {
               "type": "buy-buttons",
               "settings": {
@@ -305,6 +314,7 @@
             "group_icgrde",
             "divider_VJhene",
             "variant_picker_R3rGDr",
+            "size_guide_block",
             "buy_buttons_eYQEYi",
             "text_aEtTtq"
           ]

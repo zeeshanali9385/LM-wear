@@ -1,0 +1,155 @@
+{% liquid
+  assign product_resource = closest.product
+  assign ns = block.settings.metafield_namespace | default: settings.size_guide_metafield_namespace | default: 'custom'
+  assign key = block.settings.metafield_key | default: settings.size_guide_metafield_key | default: 'size_chart'
+  assign size_chart = product_resource.metafields[ns][key]
+  assign show_guide = false
+
+  if size_chart != blank
+    assign show_guide = true
+  elsif block.settings.show_when_empty and request.design_mode
+    assign show_guide = true
+  endif
+%}
+
+{% if show_guide %}
+  <div class="size-guide-block spacing-style" {{ block.shopify_attributes }}>
+    <button
+      type="button"
+      class="size-guide-trigger"
+      data-size-guide-trigger="{{ product_resource.id }}"
+      aria-haspopup="dialog"
+    >
+      {% if block.settings.icon != blank %}
+        {{
+          block.settings.icon
+          | image_url: width: 32
+          | image_tag: loading: 'lazy', width: 16, height: 16, alt: ''
+        }}
+      {% endif %}
+      {{ block.settings.button_label }}
+    </button>
+
+    <size-guide-modal data-product-id="{{ product_resource.id }}">
+      <div class="size-guide-modal" data-size-guide-modal role="dialog" aria-modal="true" aria-label="{{ block.settings.modal_heading | escape }}">
+        <div class="size-guide-modal__panel">
+          <button type="button" class="size-guide-modal__close" data-size-guide-close aria-label="{{ block.settings.close_label | escape }}">
+            ×
+          </button>
+          {% if block.settings.modal_heading != blank %}
+            <h2 class="size-guide-modal__heading">{{ block.settings.modal_heading }}</h2>
+          {% endif %}
+          <div class="size-guide-modal__content rte">
+            {% if size_chart != blank %}
+              {% if size_chart.type == 'rich_text_field' %}
+                {{ size_chart | metafield_tag }}
+              {% elsif size_chart.type == 'page_reference' %}
+                {{ size_chart.value.content }}
+              {% elsif size_chart.type == 'file_reference' and size_chart.value.media_type == 'image' %}
+                {{
+                  size_chart.value
+                  | image_url: width: 1200
+                  | image_tag:
+                    loading: 'lazy',
+                    alt: block.settings.modal_heading | escape
+                }}
+              {% else %}
+                {{ size_chart.value }}
+              {% endif %}
+            {% elsif request.design_mode %}
+              <p>{{ block.settings.placeholder_text }}</p>
+              <table>
+                <thead>
+                  <tr><th>Size</th><th>Bust</th><th>Waist</th><th>Hips</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>S</td><td>32"</td><td>26"</td><td>36"</td></tr>
+                  <tr><td>M</td><td>34"</td><td>28"</td><td>38"</td></tr>
+                  <tr><td>L</td><td>36"</td><td>30"</td><td>40"</td></tr>
+                </tbody>
+              </table>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </size-guide-modal>
+
+    <script src="{{ 'premium-size-guide.js' | asset_url }}" defer></script>
+  </div>
+{% endif %}
+
+{% stylesheet %}
+  .size-guide-block {
+    margin-block: 0.5rem;
+  }
+
+  .size-guide-modal__heading {
+    font-size: 1.25rem !important;
+    margin: 0 2.5rem 1.25rem 0;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Size Guide",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Displays when the product has a Size Chart metafield. Configure namespace/key in Theme Settings → Premium Store."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Size Guide"
+    },
+    {
+      "type": "text",
+      "id": "modal_heading",
+      "label": "Modal heading",
+      "default": "Size Guide"
+    },
+    {
+      "type": "text",
+      "id": "close_label",
+      "label": "Close button label (accessible)",
+      "default": "Close size guide"
+    },
+    {
+      "type": "text",
+      "id": "metafield_namespace",
+      "label": "Metafield namespace override",
+      "info": "Leave blank to use theme default"
+    },
+    {
+      "type": "text",
+      "id": "metafield_key",
+      "label": "Metafield key override",
+      "info": "Leave blank to use theme default"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon",
+      "label": "Optional icon"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_when_empty",
+      "label": "Show placeholder in theme editor",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "placeholder_text",
+      "label": "Theme editor placeholder text",
+      "default": "Add a Size Chart metafield to this product to display sizing information."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Size Guide"
+    }
+  ]
+}
+{% endschema %}

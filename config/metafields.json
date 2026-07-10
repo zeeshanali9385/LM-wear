@@ -1,0 +1,12 @@
+{
+  "metafields": [
+    {
+      "namespace": "custom",
+      "key": "size_chart",
+      "name": "Size Chart",
+      "description": "Size guide content for inner garments. Supports rich text, page reference, or image.",
+      "type": "rich_text_field",
+      "owner_type": "PRODUCT"
+    }
+  ]
+}

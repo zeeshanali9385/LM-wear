@@ -30,6 +30,7 @@
     {%- render 'scripts' -%}
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-palette' -%}
+    {%- render 'premium-store-head' -%}
 
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}
@@ -41,7 +42,7 @@
   <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
     {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
 
-    {% render 'chat-drawer' %}
+    {% render 'premium-contact-widget' %}
 
     <div class="page-wrapper">
       <div id="header-group">

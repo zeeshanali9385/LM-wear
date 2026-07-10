@@ -1,0 +1,267 @@
+<section
+  class="premium-section premium-instagram premium-section--narrow"
+  id="PremiumInstagram-{{ section.id }}"
+  style="
+    background-color: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    --premium-grid-cols: {{ section.settings.columns }};
+    --premium-grid-cols-mobile: {{ section.settings.columns_mobile }};
+  "
+>
+  <div class="premium-section__inner">
+    <header class="premium-instagram__header">
+      {% if section.settings.eyebrow != blank %}
+        <span class="premium-section__eyebrow">{{ section.settings.eyebrow }}</span>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="premium-section__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.subheading != blank %}
+        <p class="premium-section__subheading">{{ section.settings.subheading }}</p>
+      {% endif %}
+      {% if section.settings.instagram_handle != blank and section.settings.profile_link != blank %}
+        <a href="{{ section.settings.profile_link }}" class="premium-instagram__handle" target="_blank" rel="noopener noreferrer">
+          {{ section.settings.instagram_handle }}
+        </a>
+      {% endif %}
+    </header>
+
+    <div class="premium-instagram__grid" role="list">
+      {% for block in section.blocks %}
+        <a
+          href="{{ block.settings.link | default: section.settings.profile_link }}"
+          class="premium-instagram__item premium-card"
+          role="listitem"
+          target="_blank"
+          rel="noopener noreferrer"
+          {{ block.shopify_attributes }}
+        >
+          <div class="premium-card__image premium-instagram__image">
+            {% if block.settings.image != blank %}
+              {{
+                block.settings.image
+                | image_url: width: 600
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '200, 300, 400, 600',
+                  sizes: '(min-width: 750px) 16vw, 33vw',
+                  alt: block.settings.image_alt | default: 'Instagram post' | escape
+              }}
+            {% else %}
+              {{ 'image' | placeholder_svg_tag }}
+            {% endif %}
+            <span class="premium-instagram__overlay" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+      {% else %}
+        {% for i in (1..6) %}
+          <div class="premium-instagram__item premium-card" role="listitem">
+            <div class="premium-card__image premium-instagram__image">{{ 'image' | placeholder_svg_tag }}</div>
+          </div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .premium-instagram__header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .premium-instagram__header .premium-section__subheading {
+    margin-inline: auto;
+  }
+
+  .premium-instagram__handle {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    color: inherit;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+
+  .premium-instagram__handle:hover {
+    opacity: 1;
+  }
+
+  .premium-instagram__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--premium-grid-cols-mobile, 3), 1fr);
+    gap: 0.5rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .premium-instagram__grid {
+      grid-template-columns: repeat(var(--premium-grid-cols, 6), 1fr);
+      gap: 0.75rem;
+    }
+  }
+
+  .premium-instagram__item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .premium-instagram__image {
+    position: relative;
+    aspect-ratio: 1/1;
+  }
+
+  .premium-instagram__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.35);
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .premium-instagram__item:hover .premium-instagram__overlay {
+    opacity: 1;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Premium Instagram Feed",
+  "tag": "section",
+  "class": "premium-instagram-section",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "@follow us"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "On Instagram"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Share your style with us using our hashtag."
+    },
+    {
+      "type": "text",
+      "id": "instagram_handle",
+      "label": "Instagram handle",
+      "default": "@yourstore"
+    },
+    {
+      "type": "url",
+      "id": "profile_link",
+      "label": "Instagram profile URL"
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "min": 4,
+      "max": 6,
+      "step": 1,
+      "label": "Columns (desktop)",
+      "default": 6
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Columns (mobile)",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image alt text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Post link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium Instagram Feed",
+      "blocks": [
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" }
+      ]
+    }
+  ]
+}
+{% endschema %}

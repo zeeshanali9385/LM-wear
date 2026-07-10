@@ -1,0 +1,138 @@
+{% liquid
+  assign show_widget = false
+  if settings.contact_widget_enable
+    if template.name == 'index' and settings.contact_widget_show_home
+      assign show_widget = true
+    elsif template.name == 'collection' and settings.contact_widget_show_collection
+      assign show_widget = true
+    elsif template.name == 'product' and settings.contact_widget_show_product
+      assign show_widget = true
+    endif
+  endif
+%}
+
+{% if show_widget %}
+{% liquid
+  assign whatsapp_number = settings.contact_widget_whatsapp_number | strip
+  assign whatsapp_message = settings.contact_widget_whatsapp_message | url_encode
+  assign whatsapp_url = 'https://wa.me/' | append: whatsapp_number | append: '?text=' | append: whatsapp_message
+  assign form_endpoint = settings.contact_widget_form_endpoint
+  assign email_field = settings.contact_widget_form_email_field | default: 'email'
+  assign message_field = settings.contact_widget_form_message_field | default: 'message'
+%}
+
+<script src="{{ 'premium-contact-widget.js' | asset_url }}" defer></script>
+
+<premium-contact-widget
+  class="contact-widget"
+  data-success-message="{{ settings.contact_widget_success_message | escape }}"
+>
+  <button
+    type="button"
+    class="contact-widget__fab"
+    data-contact-fab
+    aria-expanded="false"
+    aria-controls="ContactWidgetPanel"
+    aria-label="{{ settings.contact_widget_button_label | escape }}"
+  >
+    <svg class="contact-widget__fab-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="contact-widget__fab-label">{{ settings.contact_widget_button_label }}</span>
+  </button>
+
+  <div
+    id="ContactWidgetPanel"
+    class="contact-widget__panel"
+    data-contact-panel
+    role="dialog"
+    aria-label="{{ settings.contact_widget_heading | escape }}"
+  >
+    <div class="contact-widget__header">
+      <h2>{{ settings.contact_widget_heading }}</h2>
+      <div class="contact-widget__tabs" role="tablist">
+        <button
+          type="button"
+          class="contact-widget__tab is-active"
+          data-contact-tab="whatsapp"
+          role="tab"
+          aria-selected="true"
+          aria-controls="ContactPaneWhatsApp"
+        >
+          {{ settings.contact_widget_whatsapp_tab_label }}
+        </button>
+        <button
+          type="button"
+          class="contact-widget__tab"
+          data-contact-tab="email"
+          role="tab"
+          aria-selected="false"
+          aria-controls="ContactPaneEmail"
+        >
+          {{ settings.contact_widget_email_tab_label }}
+        </button>
+      </div>
+    </div>
+
+    <div class="contact-widget__body">
+      <div
+        id="ContactPaneWhatsApp"
+        class="contact-widget__pane is-active"
+        data-contact-pane="whatsapp"
+        role="tabpanel"
+      >
+        <p class="contact-widget__whatsapp-text">{{ settings.contact_widget_whatsapp_message }}</p>
+        <a
+          href="{{ whatsapp_url }}"
+          class="premium-btn premium-btn--primary contact-widget__submit"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ settings.contact_widget_whatsapp_button_label }}
+        </a>
+      </div>
+
+      <div
+        id="ContactPaneEmail"
+        class="contact-widget__pane"
+        data-contact-pane="email"
+        role="tabpanel"
+      >
+        <form
+          class="contact-widget__form"
+          data-contact-form
+          action="{{ form_endpoint }}"
+          method="POST"
+        >
+          <input type="hidden" name="_subject" value="New inquiry from {{ shop.name }}">
+          <div class="contact-widget__field">
+            <label for="ContactWidgetEmail">{{ 'templates.contact.form.email' | t | default: 'Email' }}</label>
+            <input
+              type="email"
+              id="ContactWidgetEmail"
+              name="{{ email_field }}"
+              required
+              autocomplete="email"
+              placeholder="{{ 'templates.contact.form.email' | t | default: 'your@email.com' }}"
+            >
+          </div>
+          <div class="contact-widget__field">
+            <label for="ContactWidgetMessage">{{ 'templates.contact.form.comment' | t | default: 'Message' }}</label>
+            <textarea
+              id="ContactWidgetMessage"
+              name="{{ message_field }}"
+              required
+              rows="4"
+              placeholder="{{ 'templates.contact.form.comment' | t | default: 'How can we help?' }}"
+            ></textarea>
+          </div>
+          <button type="submit" class="premium-btn premium-btn--primary contact-widget__submit">
+            {{ settings.contact_widget_send_button_label }}
+          </button>
+          <p class="contact-widget__status" data-contact-status hidden></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</premium-contact-widget>
+{% endif %}

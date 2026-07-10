@@ -2328,6 +2328,30 @@
       },
       {
         "type": "text",
+        "id": "contact_widget_email_label",
+        "label": "Email field label",
+        "default": "Email"
+      },
+      {
+        "type": "text",
+        "id": "contact_widget_email_placeholder",
+        "label": "Email placeholder",
+        "default": "your@email.com"
+      },
+      {
+        "type": "text",
+        "id": "contact_widget_message_label",
+        "label": "Message field label",
+        "default": "Message"
+      },
+      {
+        "type": "text",
+        "id": "contact_widget_message_placeholder",
+        "label": "Message placeholder",
+        "default": "How can we help?"
+      },
+      {
+        "type": "text",
         "id": "contact_widget_send_button_label",
         "label": "Send button label",
         "default": "Send message"

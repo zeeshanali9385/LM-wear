@@ -106,24 +106,24 @@
         >
           <input type="hidden" name="_subject" value="New inquiry from {{ shop.name }}">
           <div class="contact-widget__field">
-            <label for="ContactWidgetEmail">{{ 'templates.contact.form.email' | t | default: 'Email' }}</label>
+            <label for="ContactWidgetEmail">{{ settings.contact_widget_email_label | default: 'Email' }}</label>
             <input
               type="email"
               id="ContactWidgetEmail"
               name="{{ email_field }}"
               required
               autocomplete="email"
-              placeholder="{{ 'templates.contact.form.email' | t | default: 'your@email.com' }}"
+              placeholder="{{ settings.contact_widget_email_placeholder | default: 'your@email.com' }}"
             >
           </div>
           <div class="contact-widget__field">
-            <label for="ContactWidgetMessage">{{ 'templates.contact.form.comment' | t | default: 'Message' }}</label>
+            <label for="ContactWidgetMessage">{{ settings.contact_widget_message_label | default: 'Message' }}</label>
             <textarea
               id="ContactWidgetMessage"
               name="{{ message_field }}"
               required
               rows="4"
-              placeholder="{{ 'templates.contact.form.comment' | t | default: 'How can we help?' }}"
+              placeholder="{{ settings.contact_widget_message_placeholder | default: 'How can we help?' }}"
             ></textarea>
           </div>
           <button type="submit" class="premium-btn premium-btn--primary contact-widget__submit">

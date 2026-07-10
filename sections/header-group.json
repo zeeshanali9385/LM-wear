@@ -32,6 +32,9 @@
       "block_order": [
         "announcement_BxgCk9"
       ],
+      "custom_css": [
+        ".announcement-bar__text {justify-content: center; display: flex;}"
+      ],
       "name": "t:names.announcement_bar",
       "settings": {
         "speed": 5,

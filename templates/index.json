@@ -11,66 +11,70 @@
   "sections": {
     "premium_hero": {
       "type": "premium-hero",
-      "name": "Banner",
       "settings": {
-        "eyebrow": "Sensitive Skin · Healthy Glow",
-        "heading": "All-Day Hydration",
-        "subheading": "Hyaluronic + ceramides. Barrier-safe care for calm, radiant skin — gentle yet effective every day.",
+        "eyebrow": "New Season",
+        "heading": "Elevate Your Everyday",
+        "subheading": "Discover premium beauty and innerwear crafted for comfort, confidence, and timeless style.",
         "button_label": "Shop Now",
         "button_link": "shopify://collections/all",
         "button_style": "primary",
         "image": "shopify://shop_images/beauty-banner-right.png",
-        "image_alt": "LNC beauty banner",
-        "overlay_opacity": 40,
-        "overlay_color": "#1c1917",
+        "image_alt": "",
+        "overlay_color": "#000000",
+        "overlay_opacity": 15,
         "text_alignment": "left",
         "content_max_width": 560,
-        "min_height": 85,
+        "min_height": 80,
         "text_color": "#ffffff",
         "button_background": "#ffffff",
-        "button_text_color": "#1c1917",
-        "padding_top": 0,
-        "padding_bottom": 0
+        "button_text_color": "#1a1a1a",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
-    "premium_collection_tabs": {
+    "premium_collection_tabs_UME6zT": {
       "type": "premium-collection-tabs",
-      "name": "Collection Tabs",
       "blocks": {
-        "tab_skin": {
+        "tab_bLgwUt": {
           "type": "tab",
           "settings": {
-            "title": "Skin Care",
-            "collection": "beauty-products"
+            "collection": "",
+            "title": "Skin Care"
           }
         },
-        "tab_foot": {
+        "tab_ahjkhU": {
           "type": "tab",
           "settings": {
-            "title": "Foot Care",
-            "collection": "inner-wear"
+            "collection": "",
+            "title": "Foot Care"
           }
         },
-        "tab_facial": {
+        "tab_ewQERX": {
           "type": "tab",
           "settings": {
-            "title": "Facial",
-            "collection": "new-arrivals"
+            "collection": "",
+            "title": "Facial"
           }
         },
-        "tab_makeup": {
+        "tab_bN6FAr": {
           "type": "tab",
           "settings": {
-            "title": "Makeup",
-            "collection": "best-sellers"
+            "collection": "",
+            "title": "Makeup"
           }
         }
       },
-      "block_order": ["tab_skin", "tab_foot", "tab_facial", "tab_makeup"],
+      "block_order": [
+        "tab_bLgwUt",
+        "tab_ahjkhU",
+        "tab_ewQERX",
+        "tab_bN6FAr"
+      ],
+      "name": "Premium Collection Tabs",
       "settings": {
-        "eyebrow": "Shop by Category",
-        "heading": "Find Your Ritual",
-        "subheading": "Tap a tab to explore products from each collection.",
+        "eyebrow": "Shop by Ritual",
+        "heading": "Explore Our Collections",
+        "subheading": "Switch tabs to browse products from each collection.",
         "products_to_show": 4,
         "products_per_row": 4,
         "image_ratio": "4/5",
@@ -82,192 +86,219 @@
         "padding_bottom": 64
       }
     },
+    "premium_featured_products": {
+      "type": "premium-featured-products",
+      "settings": {
+        "eyebrow": "Bestsellers",
+        "heading": "Featured Products",
+        "subheading": "Our most-loved pieces, chosen by you.",
+        "collection": "all",
+        "products_to_show": 4,
+        "button_label": "View All",
+        "button_link": "",
+        "columns": 4,
+        "columns_mobile": "2",
+        "image_ratio": "4/5",
+        "background_color": "#fafafa",
+        "text_color": "#1a1a1a",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
     "premium_trust_bar": {
       "type": "premium-trust-bar",
-      "name": "Trusted Points",
       "blocks": {
         "trust_1": {
           "type": "trust_item",
           "settings": {
+            "icon_alt": "",
+            "icon_style": "leaf",
             "title": "Free Shipping",
-            "description": "On orders over $75",
-            "icon_style": "truck"
+            "description": "On orders over $75"
           }
         },
         "trust_2": {
           "type": "trust_item",
           "settings": {
+            "icon_alt": "",
+            "icon_style": "leaf",
             "title": "Easy Returns",
-            "description": "100-day hassle-free returns",
-            "icon_style": "return"
+            "description": "30-day hassle-free returns"
           }
         },
         "trust_3": {
           "type": "trust_item",
           "settings": {
+            "icon_alt": "",
+            "icon_style": "leaf",
             "title": "Secure Checkout",
-            "description": "Encrypted & protected",
-            "icon_style": "shield"
+            "description": "256-bit SSL encryption"
           }
         },
         "trust_4": {
           "type": "trust_item",
           "settings": {
-            "title": "Clean Formulas",
-            "description": "Skin-first, thoughtfully made",
-            "icon_style": "leaf"
+            "icon_alt": "",
+            "icon_style": "leaf",
+            "title": "Premium Quality",
+            "description": "Crafted with care"
           }
         }
       },
-      "block_order": ["trust_1", "trust_2", "trust_3", "trust_4"],
+      "block_order": [
+        "trust_1",
+        "trust_2",
+        "trust_3",
+        "trust_4"
+      ],
       "settings": {
         "heading": "Why shop with us",
-        "background_color": "#f7f5f3",
-        "text_color": "#1c1917",
+        "background_color": "#f5f5f5",
+        "text_color": "#1a1a1a",
         "padding_top": 40,
         "padding_bottom": 40
       }
     },
-    "premium_bestsellers": {
-      "type": "premium-featured-products",
-      "name": "Best Sellers",
-      "settings": {
-        "eyebrow": "Customer Favorites",
-        "heading": "Best Sellers",
-        "subheading": "Our most-loved products, chosen again and again.",
-        "collection": "best-sellers",
-        "products_to_show": 4,
-        "button_label": "Shop Best Sellers",
-        "button_link": "shopify://collections/best-sellers",
-        "columns": 4,
-        "columns_mobile": "2",
-        "image_ratio": "4/5",
-        "background_color": "#ffffff",
-        "text_color": "#1c1917",
-        "padding_top": 72,
-        "padding_bottom": 72
-      }
-    },
-    "premium_image_text": {
-      "type": "premium-philosophy",
-      "name": "Image with Text",
-      "settings": {
-        "eyebrow": "Our Story",
-        "heading": "Beauty that feels honest",
-        "text": "<p>Beauty should feel simple, honest, and easy to trust. Every detail brings clarity and ease to everyday rituals — from clean formulas to thoughtful packaging.</p>",
-        "button_label": "Learn More",
-        "button_link": "shopify://pages/about",
-        "background_color": "#f3ebe6",
-        "text_color": "#1c1917",
-        "button_background": "#1c1917",
-        "button_text_color": "#ffffff",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "premium_video": {
-      "type": "premium-video",
-      "name": "Video",
-      "settings": {
-        "eyebrow": "Watch",
-        "heading": "See the ritual",
-        "subheading": "A closer look at how our products fit into your everyday glow.",
-        "aspect_ratio": "16 / 9",
-        "autoplay": true,
-        "loop": true,
-        "show_controls": false,
-        "full_bleed": true,
-        "button_label": "Shop the look",
-        "button_link": "shopify://collections/all",
-        "background_color": "#f7f5f3",
-        "text_color": "#1c1917",
-        "padding_top": 72,
-        "padding_bottom": 72
-      }
-    },
     "premium_reviews": {
       "type": "premium-reviews",
-      "name": "Reviews Slider",
       "blocks": {
         "review_1": {
           "type": "review",
           "settings": {
             "rating": 5,
-            "quote": "I noticed a softer, healthier glow after just a few uses. The texture feels lightweight and absorbs beautifully.",
-            "author_name": "Carie H.",
-            "author_title": "Verified Customer"
+            "quote": "The innerwear is incredibly soft and fits perfectly. Best purchase I've made this year.",
+            "author_name": "Sarah M.",
+            "author_title": "Verified Buyer"
           }
         },
         "review_2": {
           "type": "review",
           "settings": {
             "rating": 5,
-            "quote": "A fresh glow without the heaviness. It melts into my skin quickly and leaves a soft, natural finish all day.",
-            "author_name": "Cameron S.",
-            "author_title": "Verified Customer"
+            "quote": "Beautiful packaging and the beauty products feel so luxurious. Highly recommend!",
+            "author_name": "Priya K.",
+            "author_title": "Verified Buyer"
           }
         },
         "review_3": {
           "type": "review",
           "settings": {
             "rating": 5,
-            "quote": "After a few weeks my skin looked calmer, smoother, and more even. This is now my everyday essential.",
-            "author_name": "Susan G.",
-            "author_title": "Verified Customer"
-          }
-        },
-        "review_4": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "quote": "Gentle on my sensitive skin and still gives a healthy, natural finish. Packaging feels premium too.",
-            "author_name": "Ayesha R.",
-            "author_title": "Verified Customer"
-          }
-        },
-        "review_5": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "quote": "Fast shipping and amazing quality. I already ordered again for my sister.",
-            "author_name": "Priya K.",
-            "author_title": "Verified Customer"
-          }
-        },
-        "review_6": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "quote": "Smells divine and looks radiant. My morning ritual finally feels complete.",
+            "quote": "Fast shipping, amazing quality. This is now my go-to store for essentials.",
             "author_name": "Emma L.",
-            "author_title": "Verified Customer"
+            "author_title": "Verified Buyer"
           }
         }
       },
-      "block_order": ["review_1", "review_2", "review_3", "review_4", "review_5", "review_6"],
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3"
+      ],
       "settings": {
-        "eyebrow": "Loved by Customers",
-        "heading": "Real Reviews",
-        "subheading": "Honest words from people who made it part of their everyday ritual.",
+        "eyebrow": "Testimonials",
+        "heading": "What Our Customers Say",
+        "subheading": "Real reviews from real people who love our products.",
         "background_color": "#ffffff",
-        "text_color": "#1c1917",
-        "padding_top": 72,
-        "padding_bottom": 72
+        "text_color": "#1a1a1a",
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
     "premium_blog": {
       "type": "premium-blog",
-      "name": "Blogs",
+      "disabled": true,
       "settings": {
         "eyebrow": "Journal",
         "heading": "From the Blog",
-        "subheading": "Tips, rituals, and stories for calmer, healthier skin.",
+        "subheading": "Tips, trends, and stories from our world.",
+        "blog": "news",
         "posts_to_show": 3,
         "show_excerpt": true,
         "button_label": "Read More",
+        "button_link": "",
         "image_ratio": "16/9",
-        "background_color": "#f7f5f3",
-        "text_color": "#1c1917",
+        "background_color": "#ffffff",
+        "text_color": "#1a1a1a",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "premium_instagram": {
+      "type": "premium-instagram-feed",
+      "blocks": {
+        "ig_1": {
+          "type": "image",
+          "settings": {
+            "image_alt": "",
+            "link": ""
+          }
+        },
+        "ig_2": {
+          "type": "image",
+          "settings": {
+            "image_alt": "",
+            "link": ""
+          }
+        },
+        "ig_3": {
+          "type": "image",
+          "settings": {
+            "image_alt": "",
+            "link": ""
+          }
+        },
+        "ig_4": {
+          "type": "image",
+          "settings": {
+            "image_alt": "",
+            "link": ""
+          }
+        },
+        "ig_6": {
+          "type": "image",
+          "settings": {
+            "image_alt": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "ig_1",
+        "ig_2",
+        "ig_3",
+        "ig_4",
+        "ig_6"
+      ],
+      "settings": {
+        "eyebrow": "@follow us",
+        "heading": "On Instagram",
+        "subheading": "Share your style with us using our hashtag.",
+        "instagram_handle": "",
+        "profile_link": "https://www.instagram.com/hudabeauty/?hl=en",
+        "columns": 5,
+        "columns_mobile": "3",
+        "background_color": "#ffffff",
+        "text_color": "#1a1a1a",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "premium_newsletter": {
+      "type": "premium-newsletter",
+      "settings": {
+        "eyebrow": "Stay Connected",
+        "heading": "Join Our Newsletter",
+        "subheading": "Be the first to know about new arrivals, exclusive offers, and style inspiration.",
+        "email_label": "Email address",
+        "email_placeholder": "Enter your email",
+        "button_label": "Subscribe",
+        "success_message": "Thank you for subscribing!",
+        "disclaimer": "By subscribing, you agree to receive marketing emails. Unsubscribe anytime.",
+        "background_color": "#1a1a1a",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#1a1a1a",
         "padding_top": 72,
         "padding_bottom": 72
       }
@@ -275,12 +306,12 @@
   },
   "order": [
     "premium_hero",
-    "premium_collection_tabs",
+    "premium_collection_tabs_UME6zT",
+    "premium_featured_products",
     "premium_trust_bar",
-    "premium_bestsellers",
-    "premium_image_text",
-    "premium_video",
     "premium_reviews",
-    "premium_blog"
+    "premium_blog",
+    "premium_instagram",
+    "premium_newsletter"
   ]
 }

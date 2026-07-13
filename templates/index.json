@@ -144,6 +144,21 @@
         "padding_bottom": 64
       }
     },
+    "divider_pBpjBk": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "background_color": "",
+        "divider_color": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
+      }
+    },
     "premium_values_Pc4rcW": {
       "type": "premium-values",
       "blocks": {
@@ -257,6 +272,21 @@
         "text_color": "#1a1a1a",
         "padding_top": 40,
         "padding_bottom": 40
+      }
+    },
+    "divider_U6JVjn": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "background_color": "",
+        "divider_color": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
       }
     },
     "premium_reviews": {
@@ -428,9 +458,11 @@
     "premium_hero",
     "premium_marquee_3VVhYx",
     "premium_collection_tabs_UME6zT",
+    "divider_pBpjBk",
     "premium_values_Pc4rcW",
     "premium_featured_products_YEiBMB",
     "premium_trust_bar",
+    "divider_U6JVjn",
     "premium_reviews",
     "premium_blog",
     "premium_instagram",

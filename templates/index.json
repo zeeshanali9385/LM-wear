@@ -97,6 +97,64 @@
         "padding_bottom": 64
       }
     },
+    "premium_marquee_WGAhpN": {
+      "type": "premium-marquee",
+      "blocks": {
+        "text_9BKn4a": {
+          "type": "text",
+          "settings": {
+            "text": "Sustainable Beauty"
+          }
+        },
+        "text_PNDC8Y": {
+          "type": "text",
+          "settings": {
+            "text": "Gentle Yet Effective"
+          }
+        },
+        "text_H7ATDc": {
+          "type": "text",
+          "settings": {
+            "text": "Targeted Pore Care"
+          }
+        },
+        "text_AEECgT": {
+          "type": "text",
+          "settings": {
+            "text": "Deep Hydration Boost"
+          }
+        },
+        "text_JMxprG": {
+          "type": "text",
+          "settings": {
+            "text": "Clean Safe Ingredients"
+          }
+        },
+        "text_fQRpTK": {
+          "type": "text",
+          "settings": {
+            "text": "Every Skin Type"
+          }
+        }
+      },
+      "block_order": [
+        "text_9BKn4a",
+        "text_PNDC8Y",
+        "text_H7ATDc",
+        "text_AEECgT",
+        "text_JMxprG",
+        "text_fQRpTK"
+      ],
+      "name": "Premium Marquee",
+      "settings": {
+        "heading": "Brand highlights",
+        "speed": 32,
+        "background_color": "#f7f5f3",
+        "text_color": "#1c1917",
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    },
     "premium_featured_products": {
       "type": "premium-featured-products",
       "settings": {
@@ -123,6 +181,7 @@
           "type": "trust_item",
           "settings": {
             "icon_alt": "",
+            "icon_style": "leaf",
             "title": "Free Shipping",
             "description": "On orders over $75"
           }
@@ -131,6 +190,7 @@
           "type": "trust_item",
           "settings": {
             "icon_alt": "",
+            "icon_style": "leaf",
             "title": "Easy Returns",
             "description": "30-day hassle-free returns"
           }
@@ -139,6 +199,7 @@
           "type": "trust_item",
           "settings": {
             "icon_alt": "",
+            "icon_style": "leaf",
             "title": "Secure Checkout",
             "description": "256-bit SSL encryption"
           }
@@ -147,6 +208,7 @@
           "type": "trust_item",
           "settings": {
             "icon_alt": "",
+            "icon_style": "leaf",
             "title": "Premium Quality",
             "description": "Crafted with care"
           }
@@ -314,6 +376,7 @@
   "order": [
     "premium_hero",
     "premium_collection_grid",
+    "premium_marquee_WGAhpN",
     "premium_featured_products",
     "premium_trust_bar",
     "premium_reviews",

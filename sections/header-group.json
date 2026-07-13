@@ -17,7 +17,7 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "Hurry up: Buy 1 — Get 1 free · Free shipping over $75",
+            "text": "Hurry up: Buy 1 \u2014 Get 1 free \u00b7 Free shipping over $75",
             "font": "var(--font-subheading--family)",
             "font_size": "0.75rem",
             "letter_spacing": "loose",
@@ -39,7 +39,10 @@
         "divider_color": "{{ settings.color_palette.color2 }}",
         "padding-block-start": 12,
         "padding-block-end": 12
-      }
+      },
+      "custom_css": [
+        ".announcement-bar__text {justify-content: center; display: flex;}"
+      ]
     },
     "header_section": {
       "type": "header",

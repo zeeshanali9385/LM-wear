@@ -1,6 +1,15 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
-    "logo_height": 36,
+    "logo_height": 80,
     "logo_height_mobile": 28,
     "page_background_color": "{{ settings.color_palette.background }}",
     "page_width": "normal",
@@ -128,7 +137,9 @@
       "foreground": "#1c1917",
       "color1": "#6b6560",
       "color2": "#e5dfd8"
-    }
+    },
+    "logo": "shopify://shop_images/A8rm1ZpbN_d2MCFJQ-0nB_6mKYkQ2m.png",
+    "favicon": "shopify://shop_images/lm-favicon.png"
   },
   "presets": {
     "Horizon": {

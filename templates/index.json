@@ -12,9 +12,9 @@
     "premium_hero": {
       "type": "premium-hero",
       "settings": {
-        "eyebrow": "Sensitive Skin · Healthy Glow",
+        "eyebrow": "Sensitive Skin \u00b7 Healthy Glow",
         "heading": "All-Day Hydration",
-        "subheading": "Hyaluronic + ceramides. Barrier-safe care for calm, radiant skin — gentle yet effective every day.",
+        "subheading": "Hyaluronic + ceramides. Barrier-safe care for calm, radiant skin \u2014 gentle yet effective every day.",
         "button_label": "Shop Hydration",
         "button_link": "shopify://collections/all",
         "button_style": "primary",
@@ -28,20 +28,59 @@
         "button_background": "#ffffff",
         "button_text_color": "#1c1917",
         "padding_top": 0,
-        "padding_bottom": 0
+        "padding_bottom": 0,
+        "image": "shopify://shop_images/beauty-banner-right.png",
+        "image_alt": ""
       }
     },
     "premium_marquee": {
       "type": "premium-marquee",
       "blocks": {
-        "m1": { "type": "text", "settings": { "text": "Sustainable Beauty" } },
-        "m2": { "type": "text", "settings": { "text": "Gentle Yet Effective" } },
-        "m3": { "type": "text", "settings": { "text": "Targeted Pore Care" } },
-        "m4": { "type": "text", "settings": { "text": "Deep Hydration Boost" } },
-        "m5": { "type": "text", "settings": { "text": "Clean Safe Ingredients" } },
-        "m6": { "type": "text", "settings": { "text": "Every Skin Type" } }
+        "m1": {
+          "type": "text",
+          "settings": {
+            "text": "Sustainable Beauty"
+          }
+        },
+        "m2": {
+          "type": "text",
+          "settings": {
+            "text": "Gentle Yet Effective"
+          }
+        },
+        "m3": {
+          "type": "text",
+          "settings": {
+            "text": "Targeted Pore Care"
+          }
+        },
+        "m4": {
+          "type": "text",
+          "settings": {
+            "text": "Deep Hydration Boost"
+          }
+        },
+        "m5": {
+          "type": "text",
+          "settings": {
+            "text": "Clean Safe Ingredients"
+          }
+        },
+        "m6": {
+          "type": "text",
+          "settings": {
+            "text": "Every Skin Type"
+          }
+        }
       },
-      "block_order": ["m1", "m2", "m3", "m4", "m5", "m6"],
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5",
+        "m6"
+      ],
       "settings": {
         "heading": "Brand highlights",
         "speed": 32,
@@ -76,36 +115,45 @@
           "type": "collection",
           "settings": {
             "title": "Skin Care",
-            "description": "Cleanse, treat & hydrate"
+            "description": "Cleanse, treat & hydrate",
+            "collection": "beauty-products"
           }
         },
         "col_makeup": {
           "type": "collection",
           "settings": {
             "title": "Make Up",
-            "description": "Soft color, luminous finish"
+            "description": "Soft color, luminous finish",
+            "collection": "beauty-products"
           }
         },
         "col_sets": {
           "type": "collection",
           "settings": {
             "title": "Glow Sets",
-            "description": "Rituals made simple"
+            "description": "Rituals made simple",
+            "collection": "new-arrivals"
           }
         },
         "col_body": {
           "type": "collection",
           "settings": {
             "title": "Body & Hair",
-            "description": "From scalp to skin"
+            "description": "From scalp to skin",
+            "collection": "inner-wear"
           }
         }
       },
-      "block_order": ["col_skin", "col_makeup", "col_sets", "col_body"],
+      "block_order": [
+        "col_skin",
+        "col_makeup",
+        "col_sets",
+        "col_body"
+      ],
       "settings": {
         "eyebrow": "Explore Collections",
         "heading": "Made for Your Glow",
-        "subheading": "Shop by ritual — find what your skin needs today.",
+        "subheading": "Shop by ritual \u2014 find what your skin needs today.",
         "button_label": "Explore Collections",
         "button_link": "shopify://collections",
         "columns": 4,
@@ -131,7 +179,7 @@
           "type": "value",
           "settings": {
             "title": "Paraben-Free",
-            "description": "Clean, safe beauty — formulated without parabens for everyday confidence."
+            "description": "Clean, safe beauty \u2014 formulated without parabens for everyday confidence."
           }
         },
         "v3": {
@@ -142,7 +190,11 @@
           }
         }
       },
-      "block_order": ["v1", "v2", "v3"],
+      "block_order": [
+        "v1",
+        "v2",
+        "v3"
+      ],
       "settings": {
         "eyebrow": "Clean Promise",
         "heading": "Beauty you can trust",
@@ -200,7 +252,11 @@
           }
         }
       },
-      "block_order": ["review_1", "review_2", "review_3"],
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3"
+      ],
       "settings": {
         "eyebrow": "Loved by Customers",
         "heading": "Results You Can See",
@@ -243,7 +299,12 @@
           }
         }
       },
-      "block_order": ["trust_1", "trust_2", "trust_3", "trust_4"],
+      "block_order": [
+        "trust_1",
+        "trust_2",
+        "trust_3",
+        "trust_4"
+      ],
       "settings": {
         "heading": "Why shop with us",
         "background_color": "#f7f5f3",
@@ -260,7 +321,7 @@
         "subheading": "Subscribe for updates and receive 10% off your first order.",
         "email_placeholder": "Enter your email",
         "button_label": "Subscribe",
-        "success_message": "Welcome — your glow starts here.",
+        "success_message": "Welcome \u2014 your glow starts here.",
         "disclaimer": "By subscribing, you agree to receive marketing emails. Unsubscribe anytime.",
         "background_color": "#1c1917",
         "text_color": "#ffffff",
@@ -273,18 +334,43 @@
     "premium_instagram": {
       "type": "premium-instagram-feed",
       "blocks": {
-        "ig_1": { "type": "image", "settings": {} },
-        "ig_2": { "type": "image", "settings": {} },
-        "ig_3": { "type": "image", "settings": {} },
-        "ig_4": { "type": "image", "settings": {} },
-        "ig_5": { "type": "image", "settings": {} },
-        "ig_6": { "type": "image", "settings": {} }
+        "ig_1": {
+          "type": "image",
+          "settings": {}
+        },
+        "ig_2": {
+          "type": "image",
+          "settings": {}
+        },
+        "ig_3": {
+          "type": "image",
+          "settings": {}
+        },
+        "ig_4": {
+          "type": "image",
+          "settings": {}
+        },
+        "ig_5": {
+          "type": "image",
+          "settings": {}
+        },
+        "ig_6": {
+          "type": "image",
+          "settings": {}
+        }
       },
-      "block_order": ["ig_1", "ig_2", "ig_3", "ig_4", "ig_5", "ig_6"],
+      "block_order": [
+        "ig_1",
+        "ig_2",
+        "ig_3",
+        "ig_4",
+        "ig_5",
+        "ig_6"
+      ],
       "settings": {
         "eyebrow": "On Gram",
         "heading": "Gentle beauty highlights",
-        "subheading": "Share your ritual with us — real skin, real moments.",
+        "subheading": "Share your ritual with us \u2014 real skin, real moments.",
         "instagram_handle": "@yourstore",
         "columns": 6,
         "columns_mobile": "3",

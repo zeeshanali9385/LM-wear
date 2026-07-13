@@ -36,21 +36,23 @@
     <div class="page-width">
       <div class="premium-hero__text premium-hero__text--{{ section.settings.text_alignment }}">
         {% if section.settings.eyebrow != blank %}
-          <span class="premium-section__eyebrow">{{ section.settings.eyebrow }}</span>
+          <span class="premium-section__eyebrow beauty-reveal">{{ section.settings.eyebrow }}</span>
         {% endif %}
         {% if section.settings.heading != blank %}
-          <h1 class="premium-section__heading">{{ section.settings.heading }}</h1>
+          <h1 class="premium-section__heading beauty-reveal beauty-reveal--delay-1">{{ section.settings.heading }}</h1>
         {% endif %}
         {% if section.settings.subheading != blank %}
-          <p class="premium-section__subheading">{{ section.settings.subheading }}</p>
+          <p class="premium-section__subheading beauty-reveal beauty-reveal--delay-2">{{ section.settings.subheading }}</p>
         {% endif %}
         {% if section.settings.button_label != blank %}
-          <a
-            href="{{ section.settings.button_link }}"
-            class="premium-btn premium-btn--{{ section.settings.button_style }}"
-          >
-            {{ section.settings.button_label }}
-          </a>
+          <div class="premium-hero__actions beauty-reveal beauty-reveal--delay-3">
+            <a
+              href="{{ section.settings.button_link }}"
+              class="premium-btn premium-btn--{{ section.settings.button_style }}"
+            >
+              {{ section.settings.button_label }}
+            </a>
+          </div>
         {% endif %}
       </div>
     </div>
@@ -61,10 +63,11 @@
   .premium-hero {
     position: relative;
     display: flex;
-    align-items: center;
-    min-height: var(--premium-hero-min-height, 70vh);
+    align-items: flex-end;
+    min-height: var(--premium-hero-min-height, 85vh);
     overflow: hidden;
     color: var(--premium-hero-text, #fff);
+    width: 100%;
   }
 
   .premium-hero__media {
@@ -77,13 +80,21 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transform: scale(1.02);
+    animation: premium-hero- ken 18s ease-out forwards;
   }
 
   .premium-hero__overlay {
     position: absolute;
     inset: 0;
-    background: var(--premium-hero-overlay-color, #000);
-    opacity: var(--premium-hero-overlay, 0.35);
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--premium-hero-overlay-color, #1c1917) 8%, transparent) 0%,
+        color-mix(in srgb, var(--premium-hero-overlay-color, #1c1917) 55%, transparent) 100%
+      ),
+      var(--premium-hero-overlay-color, #1c1917);
+    opacity: var(--premium-hero-overlay, 0.4);
   }
 
   .premium-hero__content {
@@ -91,12 +102,27 @@
     z-index: 1;
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     min-height: inherit;
+    padding-block: 3.5rem 4.5rem;
   }
 
   .premium-hero__text {
     max-width: var(--premium-hero-content-max, 560px);
+  }
+
+  .premium-hero__text .premium-section__eyebrow {
+    color: color-mix(in srgb, var(--premium-hero-text, #fff) 82%, transparent);
+  }
+
+  .premium-hero__text .premium-section__heading {
+    margin-bottom: 1rem;
+  }
+
+  .premium-hero__text .premium-section__subheading {
+    color: color-mix(in srgb, var(--premium-hero-text, #fff) 88%, transparent);
+    max-width: 32rem;
+    margin-bottom: 1.75rem;
   }
 
   .premium-hero__text--left {
@@ -109,9 +135,45 @@
     text-align: center;
   }
 
+  .premium-hero__text--center .premium-section__subheading {
+    margin-inline: auto;
+  }
+
+  .premium-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  @keyframes premium-hero-ken {
+    from {
+      transform: scale(1.06);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
   @media screen and (max-width: 749px) {
     .premium-hero {
-      min-height: calc(var(--premium-hero-min-height, 70vh) * 0.85);
+      min-height: min(92svh, 720px);
+      align-items: flex-end;
+    }
+
+    .premium-hero__content {
+      padding-block: 2.5rem 3rem;
+    }
+
+    .premium-hero__actions .premium-btn {
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .premium-hero__media img,
+    .premium-hero__placeholder {
+      animation: none;
+      transform: none;
     }
   }
 {% endstylesheet %}
@@ -130,25 +192,25 @@
       "type": "text",
       "id": "eyebrow",
       "label": "Eyebrow text",
-      "default": "New Collection"
+      "default": "Sensitive Skin · Healthy Glow"
     },
     {
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Elevate Your Everyday"
+      "default": "All-Day Hydration"
     },
     {
       "type": "textarea",
       "id": "subheading",
       "label": "Subheading",
-      "default": "Discover premium beauty and innerwear crafted for comfort, confidence, and timeless style."
+      "default": "Hyaluronic + ceramides. Barrier-safe care for calm, radiant skin."
     },
     {
       "type": "text",
       "id": "button_label",
       "label": "Button label",
-      "default": "Shop Now"
+      "default": "Shop Hydration"
     },
     {
       "type": "url",
@@ -228,7 +290,7 @@
       "step": 5,
       "unit": "vh",
       "label": "Minimum height",
-      "default": 75
+      "default": 90
     },
     {
       "type": "color",
@@ -246,7 +308,7 @@
       "type": "color",
       "id": "button_text_color",
       "label": "Button text color",
-      "default": "#1a1a1a"
+      "default": "#1c1917"
     },
     {
       "type": "range",
@@ -256,7 +318,7 @@
       "step": 4,
       "unit": "px",
       "label": "Padding top",
-      "default": 80
+      "default": 0
     },
     {
       "type": "range",
@@ -266,7 +328,7 @@
       "step": 4,
       "unit": "px",
       "label": "Padding bottom",
-      "default": 80
+      "default": 0
     }
   ],
   "presets": [

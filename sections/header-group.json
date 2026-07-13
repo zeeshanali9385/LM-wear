@@ -17,11 +17,12 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "Welcome to our store",
+            "text": "Hurry up: Buy 1 — Get 1 free · Free shipping over $75",
             "font": "var(--font-subheading--family)",
             "font_size": "0.75rem",
-            "letter_spacing": "normal",
-            "case": "none"
+            "letter_spacing": "loose",
+            "case": "uppercase",
+            "text_color": "#ffffff"
           },
           "blocks": {}
         }
@@ -33,11 +34,11 @@
       "settings": {
         "speed": 5,
         "section_width": "page-width",
-        "background_color": "{{ settings.color_palette.background }}",
-        "divider_width": 1,
+        "background_color": "#1c1917",
+        "divider_width": 0,
         "divider_color": "{{ settings.color_palette.color2 }}",
-        "padding-block-start": 15,
-        "padding-block-end": 15
+        "padding-block-start": 12,
+        "padding-block-end": 12
       }
     },
     "header_section": {
@@ -95,7 +96,7 @@
         "divider_size": "page-width",
         "border_width": 0,
         "background_color_top": "{{ settings.color_palette.background }}",
-        "enable_transparent_header_home": false,
+        "enable_transparent_header_home": true,
         "enable_transparent_header_product": false,
         "enable_transparent_header_collection": false
       }

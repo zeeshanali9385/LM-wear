@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "collection_list_Wfgh3m": {
       "type": "main-collection-list",
@@ -51,14 +52,14 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<h1>Collections</h1>",
+                "text": "<h1>Shop Collections</h1>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "h2",
-                "font": "var(--font-primary--family)",
+                "type_preset": "h1",
+                "font": "var(--font-heading--family)",
                 "line_height": "normal",
-                "letter_spacing": "normal",
+                "letter_spacing": "tight",
                 "case": "none",
                 "wrap": "pretty",
                 "background": false,

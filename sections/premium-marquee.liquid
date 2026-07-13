@@ -1,0 +1,204 @@
+<section
+  class="premium-section premium-marquee"
+  id="PremiumMarquee-{{ section.id }}"
+  style="
+    background-color: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+    --premium-marquee-speed: {{ section.settings.speed }}s;
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+  aria-label="{{ section.settings.heading | default: 'Highlights' | escape }}"
+>
+  {% if section.settings.heading != blank %}
+    <h2 class="visually-hidden">{{ section.settings.heading }}</h2>
+  {% endif %}
+
+  <div class="premium-marquee__track" data-marquee>
+    <div class="premium-marquee__group">
+      {% for block in section.blocks %}
+        <span class="premium-marquee__item" {{ block.shopify_attributes }}>
+          {% if block.settings.text != blank %}
+            {{ block.settings.text }}
+          {% endif %}
+          <span class="premium-marquee__dot" aria-hidden="true"></span>
+        </span>
+      {% else %}
+        {% assign defaults = 'Sustainable Beauty,Gentle Yet Effective,Targeted Pore Care,Deep Hydration Boost,Clean Safe Ingredients,Every Skin Type' | split: ',' %}
+        {% for item in defaults %}
+          <span class="premium-marquee__item">
+            {{ item }}
+            <span class="premium-marquee__dot" aria-hidden="true"></span>
+          </span>
+        {% endfor %}
+      {% endfor %}
+    </div>
+    <div class="premium-marquee__group" aria-hidden="true">
+      {% for block in section.blocks %}
+        <span class="premium-marquee__item">
+          {{ block.settings.text }}
+          <span class="premium-marquee__dot"></span>
+        </span>
+      {% else %}
+        {% assign defaults = 'Sustainable Beauty,Gentle Yet Effective,Targeted Pore Care,Deep Hydration Boost,Clean Safe Ingredients,Every Skin Type' | split: ',' %}
+        {% for item in defaults %}
+          <span class="premium-marquee__item">
+            {{ item }}
+            <span class="premium-marquee__dot"></span>
+          </span>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .premium-marquee {
+    overflow: hidden;
+    border-block: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+  }
+
+  .premium-marquee__track {
+    display: flex;
+    width: max-content;
+    animation: premium-marquee-scroll var(--premium-marquee-speed, 32s) linear infinite;
+  }
+
+  .premium-marquee__track:hover {
+    animation-play-state: paused;
+  }
+
+  .premium-marquee__group {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .premium-marquee__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-inline: 1.5rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .premium-marquee__dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.35;
+  }
+
+  @keyframes premium-marquee-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .premium-marquee__track {
+      animation: none;
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .premium-marquee__group:last-child {
+      display: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Premium Marquee",
+  "tag": "section",
+  "class": "premium-marquee-section",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Accessible heading",
+      "default": "Brand highlights"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 16,
+      "max": 60,
+      "step": 2,
+      "unit": "s",
+      "label": "Scroll speed",
+      "default": 32
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#f7f5f3"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#1c1917"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 16
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Clean Beauty"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium Marquee",
+      "blocks": [
+        { "type": "text", "settings": { "text": "Sustainable Beauty" } },
+        { "type": "text", "settings": { "text": "Gentle Yet Effective" } },
+        { "type": "text", "settings": { "text": "Targeted Pore Care" } },
+        { "type": "text", "settings": { "text": "Deep Hydration Boost" } },
+        { "type": "text", "settings": { "text": "Clean Safe Ingredients" } },
+        { "type": "text", "settings": { "text": "Every Skin Type" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

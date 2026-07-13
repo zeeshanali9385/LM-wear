@@ -1,15 +1,27 @@
 {% style %}
   :root {
-    --premium-body-size: {{ settings.premium_body_font_size | default: 17 }}px;
-    --premium-body-size-mobile: {{ settings.premium_body_font_size_mobile | default: 16 }}px;
+    /* Beauty design tokens — soft, editorial, Purity-inspired */
+    --beauty-bg: #ffffff;
+    --beauty-bg-soft: #f7f5f3;
+    --beauty-bg-blush: #f3ebe6;
+    --beauty-ink: #1c1917;
+    --beauty-muted: #6b6560;
+    --beauty-line: #e5dfd8;
+    --beauty-accent: #8f6a5b;
+    --beauty-accent-soft: #c9a99a;
+    --beauty-radius: 2px;
+    --beauty-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --premium-body-size: {{ settings.premium_body_font_size | default: 16 }}px;
+    --premium-body-size-mobile: {{ settings.premium_body_font_size_mobile | default: 15 }}px;
     --premium-body-line-height: {{ settings.premium_body_line_height | default: 160 | divided_by: 100.0 }};
-    --premium-h1-size: {{ settings.premium_h1_size | default: 34 }}px;
-    --premium-h1-size-mobile: {{ settings.premium_h1_size_mobile | default: 28 }}px;
-    --premium-h2-size: {{ settings.premium_h2_size | default: 28 }}px;
-    --premium-h2-size-mobile: {{ settings.premium_h2_size_mobile | default: 24 }}px;
+    --premium-h1-size: {{ settings.premium_h1_size | default: 56 }}px;
+    --premium-h1-size-mobile: {{ settings.premium_h1_size_mobile | default: 36 }}px;
+    --premium-h2-size: {{ settings.premium_h2_size | default: 40 }}px;
+    --premium-h2-size-mobile: {{ settings.premium_h2_size_mobile | default: 30 }}px;
     --premium-h3-size: {{ settings.premium_h3_size | default: 24 }}px;
     --premium-h3-size-mobile: {{ settings.premium_h3_size_mobile | default: 20 }}px;
-    --premium-widget-accent: {{ settings.contact_widget_accent_color | default: '#1a1a1a' }};
+    --premium-widget-accent: {{ settings.contact_widget_accent_color | default: '#8f6a5b' }};
   }
 {% endstyle %}
 {{ 'premium-store.css' | asset_url | stylesheet_tag: preload: true }}

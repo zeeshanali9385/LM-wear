@@ -42,6 +42,11 @@
           <article class="premium-card premium-featured-products__item" role="listitem">
             <a href="{{ product.url }}" class="premium-featured-products__link">
               <div class="premium-card__image">
+                {% if product.compare_at_price > product.price %}
+                  <span class="premium-featured-products__badge">Sale</span>
+                {% elsif forloop.first %}
+                  <span class="premium-featured-products__badge premium-featured-products__badge--soft">Best Seller</span>
+                {% endif %}
                 {% if product.featured_media %}
                   {{
                     product.featured_media
@@ -55,8 +60,12 @@
                 {% else %}
                   {{ 'product-1' | placeholder_svg_tag }}
                 {% endif %}
+                <span class="premium-featured-products__quick">Shop now</span>
               </div>
               <div class="premium-featured-products__meta">
+                {% if product.vendor != blank %}
+                  <p class="premium-featured-products__vendor">{{ product.vendor }}</p>
+                {% endif %}
                 <h3 class="premium-featured-products__title">{{ product.title }}</h3>
                 <p class="premium-featured-products__price">
                   {% if product.compare_at_price > product.price %}
@@ -92,7 +101,7 @@
     align-items: flex-end;
     justify-content: space-between;
     gap: 1.5rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.75rem;
   }
 
   .premium-featured-products__view-all {
@@ -102,13 +111,13 @@
   .premium-featured-products__grid {
     display: grid;
     grid-template-columns: repeat(var(--premium-grid-cols-mobile, 2), 1fr);
-    gap: 1rem;
+    gap: 1rem 0.75rem;
   }
 
   @media screen and (min-width: 750px) {
     .premium-featured-products__grid {
       grid-template-columns: repeat(var(--premium-grid-cols, 4), 1fr);
-      gap: 1.5rem;
+      gap: 2rem 1.5rem;
     }
   }
 
@@ -118,25 +127,85 @@
     color: inherit;
   }
 
+  .premium-featured-products__item .premium-card__image {
+    position: relative;
+  }
+
+  .premium-featured-products__badge {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 2;
+    padding: 0.35rem 0.55rem;
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: #fff;
+    color: var(--beauty-ink, #1c1917);
+    border-radius: 2px;
+  }
+
+  .premium-featured-products__badge--soft {
+    background: var(--beauty-bg-blush, #f3ebe6);
+    color: var(--beauty-accent, #8f6a5b);
+  }
+
+  .premium-featured-products__quick {
+    position: absolute;
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 0.75rem;
+    background: rgba(255, 255, 255, 0.94);
+    color: var(--beauty-ink, #1c1917);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.35s var(--beauty-ease, ease);
+  }
+
+  .premium-featured-products__item:hover .premium-featured-products__quick {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   .premium-featured-products__meta {
-    padding: 1rem 0.25rem 0;
+    padding: 1rem 0.15rem 0;
+  }
+
+  .premium-featured-products__vendor {
+    margin: 0 0 0.25rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--beauty-muted, #6b6560);
   }
 
   .premium-featured-products__title {
-    font-size: 0.9375rem !important;
-    margin: 0 0 0.35rem;
+    font-size: 0.975rem !important;
+    margin: 0 0 0.4rem;
     font-weight: 500;
+    letter-spacing: -0.01em;
   }
 
   .premium-featured-products__price {
     margin: 0;
     font-size: 0.875rem;
-    opacity: 0.85;
+    color: var(--beauty-muted, #6b6560);
   }
 
   .premium-featured-products__price-sale {
-    color: inherit;
+    color: var(--beauty-ink, #1c1917);
     margin-right: 0.5rem;
+    font-weight: 500;
   }
 
   .premium-featured-products__price-compare {
@@ -147,6 +216,21 @@
     .premium-featured-products__view-all {
       width: 100%;
       text-align: center;
+    }
+
+    .premium-featured-products__quick {
+      opacity: 1;
+      transform: none;
+      position: static;
+      margin-top: 0.5rem;
+      background: transparent;
+      justify-content: flex-start;
+      padding: 0;
+      font-size: 0.625rem;
+    }
+
+    .premium-featured-products__quick::after {
+      content: ' →';
     }
   }
 {% endstylesheet %}

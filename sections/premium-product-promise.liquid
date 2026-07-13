@@ -1,0 +1,170 @@
+<section
+  class="premium-section premium-product-promise"
+  id="PremiumProductPromise-{{ section.id }}"
+  style="
+    background-color: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="page-width">
+    <ul class="premium-product-promise__list" role="list">
+      {% for block in section.blocks %}
+        <li class="premium-product-promise__item" {{ block.shopify_attributes }}>
+          <span class="premium-product-promise__mark" aria-hidden="true"></span>
+          <div>
+            {% if block.settings.title != blank %}
+              <h3 class="premium-product-promise__title">{{ block.settings.title }}</h3>
+            {% endif %}
+            {% if block.settings.description != blank %}
+              <p class="premium-product-promise__desc">{{ block.settings.description }}</p>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{% stylesheet %}
+  .premium-product-promise__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .premium-product-promise__list {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+  }
+
+  .premium-product-promise__item {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+    padding: 1.25rem 1.15rem;
+    border: 1px solid var(--beauty-line, #e5dfd8);
+    background: color-mix(in srgb, #fff 65%, transparent);
+    border-radius: 2px;
+  }
+
+  .premium-product-promise__mark {
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    margin-top: 0.45rem;
+    border-radius: 50%;
+    background: var(--beauty-accent, #8f6a5b);
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--beauty-accent, #8f6a5b) 14%, transparent);
+  }
+
+  .premium-product-promise__title {
+    margin: 0 0 0.35rem;
+    font-size: 0.95rem !important;
+    font-weight: 500;
+  }
+
+  .premium-product-promise__desc {
+    margin: 0;
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: var(--beauty-muted, #6b6560);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Premium Product Promise",
+  "tag": "section",
+  "class": "premium-product-promise-section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#f7f5f3"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#1c1917"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "promise",
+      "name": "Promise",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Clean formula"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Thoughtfully made for everyday skin."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium Product Promise",
+      "blocks": [
+        {
+          "type": "promise",
+          "settings": {
+            "title": "Clean formula",
+            "description": "Gentle ingredients for everyday rituals."
+          }
+        },
+        {
+          "type": "promise",
+          "settings": {
+            "title": "Free shipping",
+            "description": "On orders over $75 worldwide."
+          }
+        },
+        {
+          "type": "promise",
+          "settings": {
+            "title": "Easy returns",
+            "description": "Hassle-free returns within 100 days."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

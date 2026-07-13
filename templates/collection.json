@@ -6,90 +6,23 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
-    "section": {
-      "type": "section",
-      "blocks": {
-        "text_tqQTNE": {
-          "type": "text",
-          "name": "Title",
-          "settings": {
-            "text": "<h1>{{ closest.collection.title }}</h1>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-primary--family)",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "text_twGGkJ": {
-          "type": "text",
-          "name": "Description",
-          "settings": {
-            "text": "{{ closest.collection.description }}",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-primary--family)",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_tqQTNE",
-        "text_twGGkJ"
-      ],
-      "name": "Collection heading",
+    "premium_collection_banner": {
+      "type": "premium-collection-banner",
       "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
-        "section_width": "page-width",
-        "section_height_custom": 50,
-        "background_media": "none",
-        "background_color": "{{ settings.color_palette.background }}",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "eyebrow": "Shop Collection",
+        "fallback_text": "Thoughtfully curated products for everyday glow and comfort.",
+        "show_description": true,
+        "show_breadcrumb": true,
+        "show_count": true,
+        "overlay_color": "#1c1917",
+        "overlay_opacity": 20,
+        "text_color": "#1c1917",
+        "min_height": 300,
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "main": {
@@ -107,11 +40,11 @@
             "show_filter_label": false,
             "enable_sorting": true,
             "enable_grid_density": true,
-            "padding-block-start": 8,
-            "padding-block-end": 8,
+            "padding-block-start": 12,
+            "padding-block-end": 12,
             "padding-inline-start": 0,
             "padding-inline-end": 0,
-            "facets_margin_bottom": 8,
+            "facets_margin_bottom": 12,
             "facets_margin_right": 20
           },
           "blocks": {}
@@ -120,11 +53,11 @@
           "type": "_product-card",
           "static": true,
           "settings": {
-            "product_card_gap": 4,
+            "product_card_gap": 8,
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
-            "border_radius": 0,
+            "border_radius": 2,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -134,11 +67,11 @@
             "card-gallery": {
               "type": "_product-card-gallery",
               "settings": {
-                "image_ratio": "adapt",
+                "image_ratio": "portrait",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
-                "border_radius": 0,
+                "border_radius": 2,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -155,7 +88,7 @@
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
-                "font_size": "1rem",
+                "font_size": "0.95rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -163,7 +96,7 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 4,
+                "padding-block-start": 8,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -180,11 +113,11 @@
                 "width": "100%",
                 "alignment": "left",
                 "font": "var(--font-body--family)",
-                "font_size": "1rem",
+                "font_size": "0.875rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
-                "padding-block-start": 0,
+                "padding-block-start": 2,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -206,17 +139,59 @@
         "product_grid_width": "centered",
         "full_width_on_mobile": true,
         "columns_gap_horizontal": 16,
-        "columns_gap_vertical": 24,
+        "columns_gap_vertical": 28,
         "padding-inline-start": 0,
         "padding-inline-end": 0,
         "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 0,
-        "padding-block-end": 32
+        "padding-block-start": 16,
+        "padding-block-end": 48
+      }
+    },
+    "premium_trust_bar": {
+      "type": "premium-trust-bar",
+      "blocks": {
+        "trust_1": {
+          "type": "trust_item",
+          "settings": {
+            "title": "Free Shipping",
+            "description": "On orders over $75"
+          }
+        },
+        "trust_2": {
+          "type": "trust_item",
+          "settings": {
+            "title": "Easy Returns",
+            "description": "100-day hassle-free returns"
+          }
+        },
+        "trust_3": {
+          "type": "trust_item",
+          "settings": {
+            "title": "Clean Formulas",
+            "description": "Skin-first, thoughtfully made"
+          }
+        },
+        "trust_4": {
+          "type": "trust_item",
+          "settings": {
+            "title": "Secure Checkout",
+            "description": "Encrypted & protected"
+          }
+        }
+      },
+      "block_order": ["trust_1", "trust_2", "trust_3", "trust_4"],
+      "settings": {
+        "heading": "Why shop with us",
+        "background_color": "#f7f5f3",
+        "text_color": "#1c1917",
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     }
   },
   "order": [
-    "section",
-    "main"
+    "premium_collection_banner",
+    "main",
+    "premium_trust_bar"
   ]
 }

@@ -98,15 +98,22 @@
 
   .premium-reviews__card {
     padding: 1.75rem;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--beauty-line, #e5dfd8);
+    background: var(--beauty-bg-soft, #f7f5f3);
+    border-radius: 2px;
+    transition: transform 0.4s var(--beauty-ease, ease), border-color 0.3s ease;
+  }
+
+  .premium-reviews__card:hover {
+    transform: translateY(-4px);
+    border-color: var(--beauty-accent-soft, #c9a99a);
   }
 
   .premium-reviews__stars {
     margin-bottom: 1rem;
-    font-size: 0.875rem;
-    letter-spacing: 0.1em;
-    color: #c9a227;
+    font-size: 0.8125rem;
+    letter-spacing: 0.12em;
+    color: var(--beauty-accent, #8f6a5b);
   }
 
   .premium-reviews__star--empty {
@@ -115,13 +122,13 @@
 
   .premium-reviews__quote {
     margin: 0 0 1.25rem;
-    font-style: italic;
+    font-style: normal;
   }
 
   .premium-reviews__quote p {
     margin: 0;
-    font-size: 0.9375rem;
-    line-height: 1.6;
+    font-size: 0.975rem;
+    line-height: 1.65;
   }
 
   .premium-reviews__author {

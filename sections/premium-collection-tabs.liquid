@@ -1,0 +1,404 @@
+<section
+  class="premium-section premium-collection-tabs"
+  id="PremiumCollectionTabs-{{ section.id }}"
+  style="
+    background-color: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    --premium-card-ratio: {{ section.settings.image_ratio }};
+    --premium-tabs-cols: {{ section.settings.products_per_row }};
+  "
+  data-collection-tabs
+>
+  <div class="page-width">
+    <header class="premium-collection-tabs__header">
+      {% if section.settings.eyebrow != blank %}
+        <span class="premium-section__eyebrow">{{ section.settings.eyebrow }}</span>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="premium-section__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.subheading != blank %}
+        <p class="premium-section__subheading">{{ section.settings.subheading }}</p>
+      {% endif %}
+    </header>
+
+    {% if section.blocks.size > 0 %}
+      <div class="premium-collection-tabs__nav" role="tablist" aria-label="{{ section.settings.heading | default: 'Collections' | escape }}">
+        {% for block in section.blocks %}
+          {% liquid
+            assign tab_label = block.settings.title
+            if tab_label == blank and block.settings.collection != blank
+              assign tab_label = block.settings.collection.title
+            endif
+            if tab_label == blank
+              assign tab_label = 'Collection'
+            endif
+          %}
+          <button
+            type="button"
+            class="premium-collection-tabs__tab{% if forloop.first %} is-active{% endif %}"
+            role="tab"
+            id="Tab-{{ section.id }}-{{ block.id }}"
+            aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+            aria-controls="Panel-{{ section.id }}-{{ block.id }}"
+            data-tab-trigger
+            {{ block.shopify_attributes }}
+          >
+            {{ tab_label }}
+          </button>
+        {% endfor %}
+      </div>
+
+      <div class="premium-collection-tabs__panels">
+        {% for block in section.blocks %}
+          {% assign collection = block.settings.collection %}
+          <div
+            class="premium-collection-tabs__panel{% if forloop.first %} is-active{% endif %}"
+            role="tabpanel"
+            id="Panel-{{ section.id }}-{{ block.id }}"
+            aria-labelledby="Tab-{{ section.id }}-{{ block.id }}"
+            {% unless forloop.first %}hidden{% endunless %}
+            data-tab-panel
+          >
+            <div class="premium-collection-tabs__grid" role="list">
+              {% if collection != blank and collection.products_count > 0 %}
+                {% for product in collection.products limit: section.settings.products_to_show %}
+                  <article class="premium-card premium-collection-tabs__item" role="listitem">
+                    <a href="{{ product.url }}" class="premium-collection-tabs__link">
+                      <div class="premium-card__image">
+                        {% if product.featured_media %}
+                          {{
+                            product.featured_media
+                            | image_url: width: 800
+                            | image_tag:
+                              loading: 'lazy',
+                              widths: '300, 400, 600, 800',
+                              sizes: '(min-width: 750px) 25vw, 50vw',
+                              alt: product.featured_media.alt | default: product.title | escape
+                          }}
+                        {% else %}
+                          {{ 'product-1' | placeholder_svg_tag }}
+                        {% endif %}
+                      </div>
+                      <div class="premium-collection-tabs__meta">
+                        <h3 class="premium-collection-tabs__title">{{ product.title }}</h3>
+                        <p class="premium-collection-tabs__price">
+                          {% if product.compare_at_price > product.price %}
+                            <span class="premium-collection-tabs__price-sale">{{ product.price | money }}</span>
+                            <s>{{ product.compare_at_price | money }}</s>
+                          {% else %}
+                            {{ product.price | money }}
+                          {% endif %}
+                        </p>
+                      </div>
+                    </a>
+                  </article>
+                {% endfor %}
+              {% else %}
+                {% for i in (1..4) %}
+                  <article class="premium-card premium-collection-tabs__item" role="listitem">
+                    <div class="premium-card__image">{{ 'product-' | append: i | placeholder_svg_tag }}</div>
+                    <div class="premium-collection-tabs__meta">
+                      <h3 class="premium-collection-tabs__title">Sample product {{ i }}</h3>
+                      <p class="premium-collection-tabs__price">{{ 2499 | money }}</p>
+                    </div>
+                  </article>
+                {% endfor %}
+              {% endif %}
+            </div>
+
+            {% if collection != blank and section.settings.show_view_all %}
+              <div class="premium-collection-tabs__cta">
+                <a href="{{ collection.url }}" class="premium-btn premium-btn--secondary">
+                  {{ section.settings.view_all_label }} {{ collection.title }}
+                </a>
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="premium-collection-tabs__empty">Add collection tabs in the theme editor.</p>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  (() => {
+    const root = document.getElementById('PremiumCollectionTabs-{{ section.id }}');
+    if (!root) return;
+    const tabs = [...root.querySelectorAll('[data-tab-trigger]')];
+    const panels = [...root.querySelectorAll('[data-tab-panel]')];
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => {
+        tabs.forEach((t, i) => {
+          const active = i === index;
+          t.classList.toggle('is-active', active);
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+          panels[i].classList.toggle('is-active', active);
+          panels[i].hidden = !active;
+        });
+      });
+    });
+  })();
+</script>
+
+{% stylesheet %}
+  .premium-collection-tabs__header {
+    text-align: center;
+    margin-bottom: 1.75rem;
+  }
+
+  .premium-collection-tabs__header .premium-section__subheading {
+    margin-inline: auto;
+  }
+
+  .premium-collection-tabs__nav {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 0.35rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-bottom: 2rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--beauty-line, #e5dfd8);
+  }
+
+  .premium-collection-tabs__nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .premium-collection-tabs__tab {
+    flex: 0 0 auto;
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--beauty-muted, #6b6560);
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.85rem 1.1rem;
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+    transition: color 0.25s ease;
+  }
+
+  .premium-collection-tabs__tab::after {
+    content: '';
+    position: absolute;
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: -1px;
+    height: 2px;
+    background: transparent;
+    transition: background-color 0.25s ease;
+  }
+
+  .premium-collection-tabs__tab.is-active,
+  .premium-collection-tabs__tab:hover {
+    color: var(--beauty-ink, #1c1917);
+  }
+
+  .premium-collection-tabs__tab.is-active::after {
+    background: var(--beauty-accent, #8f6a5b);
+  }
+
+  .premium-collection-tabs__panel {
+    display: none;
+  }
+
+  .premium-collection-tabs__panel.is-active {
+    display: block;
+    animation: beauty-fade-up 0.45s var(--beauty-ease, ease) both;
+  }
+
+  .premium-collection-tabs__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem 0.75rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .premium-collection-tabs__grid {
+      grid-template-columns: repeat(var(--premium-tabs-cols, 4), 1fr);
+      gap: 1.75rem 1.25rem;
+    }
+  }
+
+  .premium-collection-tabs__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .premium-collection-tabs__meta {
+    padding-top: 0.85rem;
+  }
+
+  .premium-collection-tabs__title {
+    margin: 0 0 0.35rem;
+    font-size: 0.95rem !important;
+    font-weight: 500;
+  }
+
+  .premium-collection-tabs__price {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--beauty-muted, #6b6560);
+  }
+
+  .premium-collection-tabs__price-sale {
+    color: var(--beauty-ink, #1c1917);
+    margin-right: 0.4rem;
+    font-weight: 500;
+  }
+
+  .premium-collection-tabs__cta {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .premium-collection-tabs__empty {
+    text-align: center;
+    opacity: 0.7;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Premium Collection Tabs",
+  "tag": "section",
+  "class": "premium-collection-tabs-section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Shop by Ritual"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Explore Our Collections"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Switch tabs to browse products from each collection."
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "label": "Products per tab",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "products_per_row",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Products per row (desktop)",
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "options": [
+        { "value": "1/1", "label": "Square" },
+        { "value": "4/5", "label": "Portrait" },
+        { "value": "3/4", "label": "Tall portrait" }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show view all button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "View all label",
+      "default": "View all"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#1c1917"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Collection tab",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Tab label",
+          "info": "Leave blank to use collection title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium Collection Tabs",
+      "blocks": [
+        { "type": "tab", "settings": { "title": "Skin Care" } },
+        { "type": "tab", "settings": { "title": "Foot Care" } },
+        { "type": "tab", "settings": { "title": "Facial" } },
+        { "type": "tab", "settings": { "title": "Makeup" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

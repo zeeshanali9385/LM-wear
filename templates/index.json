@@ -12,206 +12,145 @@
     "premium_hero": {
       "type": "premium-hero",
       "settings": {
-        "eyebrow": "Sensitive Skin \u00b7 Healthy Glow",
+        "eyebrow": "Sensitive Skin · Healthy Glow",
         "heading": "All-Day Hydration",
-        "subheading": "Hyaluronic + ceramides. Barrier-safe care for calm, radiant skin \u2014 gentle yet effective every day.",
-        "button_label": "Shop Hydration",
+        "subheading": "Hyaluronic + ceramides. Barrier-safe care for calm, radiant skin — gentle yet effective every day.",
+        "button_label": "Shop Now",
         "button_link": "shopify://collections/all",
         "button_style": "primary",
+        "image": "shopify://shop_images/beauty-banner-right.png",
+        "image_alt": "",
         "overlay_opacity": 40,
         "overlay_color": "#1c1917",
-        "section_width": "narrow",
         "text_alignment": "left",
         "content_max_width": 560,
-        "min_height": 90,
+        "min_height": 85,
         "text_color": "#ffffff",
         "button_background": "#ffffff",
         "button_text_color": "#1c1917",
         "padding_top": 0,
-        "padding_bottom": 0,
-        "image": "shopify://shop_images/beauty-banner-right.png",
-        "image_alt": ""
+        "padding_bottom": 0
       }
     },
-    "premium_marquee": {
-      "type": "premium-marquee",
+    "premium_collection_tabs": {
+      "type": "premium-collection-tabs",
       "blocks": {
-        "m1": {
-          "type": "text",
-          "settings": {
-            "text": "Sustainable Beauty"
-          }
-        },
-        "m2": {
-          "type": "text",
-          "settings": {
-            "text": "Gentle Yet Effective"
-          }
-        },
-        "m3": {
-          "type": "text",
-          "settings": {
-            "text": "Targeted Pore Care"
-          }
-        },
-        "m4": {
-          "type": "text",
-          "settings": {
-            "text": "Deep Hydration Boost"
-          }
-        },
-        "m5": {
-          "type": "text",
-          "settings": {
-            "text": "Clean Safe Ingredients"
-          }
-        },
-        "m6": {
-          "type": "text",
-          "settings": {
-            "text": "Every Skin Type"
-          }
-        }
-      },
-      "block_order": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6"
-      ],
-      "settings": {
-        "heading": "Brand highlights",
-        "speed": 32,
-        "background_color": "#f7f5f3",
-        "text_color": "#1c1917",
-        "padding_top": 18,
-        "padding_bottom": 18
-      }
-    },
-    "premium_featured_products": {
-      "type": "premium-featured-products",
-      "settings": {
-        "eyebrow": "Popular Picks",
-        "heading": "Our Top Sellers",
-        "subheading": "Editor-loved essentials for glow, calm, and everyday rituals.",
-        "collection": "all",
-        "products_to_show": 4,
-        "button_label": "View All",
-        "columns": 4,
-        "columns_mobile": "2",
-        "image_ratio": "4/5",
-        "background_color": "#ffffff",
-        "text_color": "#1c1917",
-        "padding_top": 72,
-        "padding_bottom": 72
-      }
-    },
-    "premium_collection_grid": {
-      "type": "premium-collection-grid",
-      "blocks": {
-        "col_skin": {
-          "type": "collection",
+        "tab_skin": {
+          "type": "tab",
           "settings": {
             "title": "Skin Care",
-            "description": "Cleanse, treat & hydrate",
             "collection": "beauty-products"
           }
         },
-        "col_makeup": {
-          "type": "collection",
+        "tab_foot": {
+          "type": "tab",
           "settings": {
-            "title": "Make Up",
-            "description": "Soft color, luminous finish",
-            "collection": "beauty-products"
+            "title": "Foot Care",
+            "collection": "inner-wear"
           }
         },
-        "col_sets": {
-          "type": "collection",
+        "tab_facial": {
+          "type": "tab",
           "settings": {
-            "title": "Glow Sets",
-            "description": "Rituals made simple",
+            "title": "Facial",
             "collection": "new-arrivals"
           }
         },
-        "col_body": {
-          "type": "collection",
+        "tab_makeup": {
+          "type": "tab",
           "settings": {
-            "title": "Body & Hair",
-            "description": "From scalp to skin",
-            "collection": "inner-wear"
+            "title": "Makeup",
+            "collection": "best-sellers"
           }
         }
       },
-      "block_order": [
-        "col_skin",
-        "col_makeup",
-        "col_sets",
-        "col_body"
-      ],
+      "block_order": ["tab_skin", "tab_foot", "tab_facial", "tab_makeup"],
       "settings": {
-        "eyebrow": "Explore Collections",
-        "heading": "Made for Your Glow",
-        "subheading": "Shop by ritual \u2014 find what your skin needs today.",
-        "button_label": "Explore Collections",
-        "button_link": "shopify://collections",
+        "eyebrow": "Shop by Category",
+        "heading": "Find Your Ritual",
+        "subheading": "Tap a tab to explore products from each collection.",
+        "products_to_show": 4,
+        "products_per_row": 4,
+        "image_ratio": "4/5",
+        "show_view_all": true,
+        "view_all_label": "View all",
+        "background_color": "#ffffff",
+        "text_color": "#1c1917",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "premium_trust_bar": {
+      "type": "premium-trust-bar",
+      "blocks": {
+        "trust_1": {
+          "type": "trust_item",
+          "settings": {
+            "title": "Free Shipping",
+            "description": "On orders over $75",
+            "icon_style": "truck"
+          }
+        },
+        "trust_2": {
+          "type": "trust_item",
+          "settings": {
+            "title": "Easy Returns",
+            "description": "100-day hassle-free returns",
+            "icon_style": "return"
+          }
+        },
+        "trust_3": {
+          "type": "trust_item",
+          "settings": {
+            "title": "Secure Checkout",
+            "description": "Encrypted & protected",
+            "icon_style": "shield"
+          }
+        },
+        "trust_4": {
+          "type": "trust_item",
+          "settings": {
+            "title": "Clean Formulas",
+            "description": "Skin-first, thoughtfully made",
+            "icon_style": "leaf"
+          }
+        }
+      },
+      "block_order": ["trust_1", "trust_2", "trust_3", "trust_4"],
+      "settings": {
+        "heading": "Why shop with us",
+        "background_color": "#f7f5f3",
+        "text_color": "#1c1917",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "premium_bestsellers": {
+      "type": "premium-featured-products",
+      "settings": {
+        "eyebrow": "Customer Favorites",
+        "heading": "Best Sellers",
+        "subheading": "Our most-loved products, chosen again and again.",
+        "collection": "best-sellers",
+        "products_to_show": 4,
+        "button_label": "Shop Best Sellers",
+        "button_link": "shopify://collections/best-sellers",
         "columns": 4,
         "columns_mobile": "2",
         "image_ratio": "4/5",
-        "background_color": "#f7f5f3",
-        "text_color": "#1c1917",
-        "padding_top": 72,
-        "padding_bottom": 72
-      }
-    },
-    "premium_values": {
-      "type": "premium-values",
-      "blocks": {
-        "v1": {
-          "type": "value",
-          "settings": {
-            "title": "Cruelty-Free",
-            "description": "We're cruelty-free, always and forever, because we believe compassion is the true beauty."
-          }
-        },
-        "v2": {
-          "type": "value",
-          "settings": {
-            "title": "Paraben-Free",
-            "description": "Clean, safe beauty \u2014 formulated without parabens for everyday confidence."
-          }
-        },
-        "v3": {
-          "type": "value",
-          "settings": {
-            "title": "Earth-Conscious",
-            "description": "Our commitment to the planet is present in every step of our product journey."
-          }
-        }
-      },
-      "block_order": [
-        "v1",
-        "v2",
-        "v3"
-      ],
-      "settings": {
-        "eyebrow": "Clean Promise",
-        "heading": "Beauty you can trust",
-        "subheading": "Thoughtful formulas for skin that feels calm, clear, and cared for.",
         "background_color": "#ffffff",
         "text_color": "#1c1917",
         "padding_top": 72,
         "padding_bottom": 72
       }
     },
-    "premium_philosophy": {
+    "premium_image_text": {
       "type": "premium-philosophy",
       "settings": {
-        "eyebrow": "Purity Philosophy",
-        "heading": "Pure beauty, chosen with care",
-        "text": "<p>Beauty should feel simple, honest, and easy to trust. Every detail brings clarity and ease to everyday rituals.</p>",
-        "button_label": "Our Philosophy",
+        "eyebrow": "Our Story",
+        "heading": "Beauty that feels honest",
+        "text": "<p>Beauty should feel simple, honest, and easy to trust. Every detail brings clarity and ease to everyday rituals — from clean formulas to thoughtful packaging.</p>",
+        "button_label": "Learn More",
         "button_link": "shopify://pages/about",
         "background_color": "#f3ebe6",
         "text_color": "#1c1917",
@@ -219,6 +158,25 @@
         "button_text_color": "#ffffff",
         "padding_top": 0,
         "padding_bottom": 0
+      }
+    },
+    "premium_video": {
+      "type": "premium-video",
+      "settings": {
+        "eyebrow": "Watch",
+        "heading": "See the ritual",
+        "subheading": "A closer look at how our products fit into your everyday glow.",
+        "aspect_ratio": "16 / 9",
+        "autoplay": true,
+        "loop": true,
+        "show_controls": false,
+        "full_bleed": true,
+        "button_label": "Shop the look",
+        "button_link": "shopify://collections/all",
+        "background_color": "#f7f5f3",
+        "text_color": "#1c1917",
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     },
     "premium_reviews": {
@@ -250,131 +208,57 @@
             "author_name": "Susan G.",
             "author_title": "Verified Customer"
           }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "Gentle on my sensitive skin and still gives a healthy, natural finish. Packaging feels premium too.",
+            "author_name": "Ayesha R.",
+            "author_title": "Verified Customer"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "Fast shipping and amazing quality. I already ordered again for my sister.",
+            "author_name": "Priya K.",
+            "author_title": "Verified Customer"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "Smells divine and looks radiant. My morning ritual finally feels complete.",
+            "author_name": "Emma L.",
+            "author_title": "Verified Customer"
+          }
         }
       },
-      "block_order": [
-        "review_1",
-        "review_2",
-        "review_3"
-      ],
+      "block_order": ["review_1", "review_2", "review_3", "review_4", "review_5", "review_6"],
       "settings": {
         "eyebrow": "Loved by Customers",
-        "heading": "Results You Can See",
-        "subheading": "Real glow stories from people who made it part of their ritual.",
+        "heading": "Real Reviews",
+        "subheading": "Honest words from people who made it part of their everyday ritual.",
         "background_color": "#ffffff",
         "text_color": "#1c1917",
         "padding_top": 72,
         "padding_bottom": 72
       }
     },
-    "premium_trust_bar": {
-      "type": "premium-trust-bar",
-      "blocks": {
-        "trust_1": {
-          "type": "trust_item",
-          "settings": {
-            "title": "Free Shipping",
-            "description": "On orders over $75 worldwide"
-          }
-        },
-        "trust_2": {
-          "type": "trust_item",
-          "settings": {
-            "title": "Easy Returns",
-            "description": "100-day hassle-free returns"
-          }
-        },
-        "trust_3": {
-          "type": "trust_item",
-          "settings": {
-            "title": "Support Online",
-            "description": "We're here 7 days a week"
-          }
-        },
-        "trust_4": {
-          "type": "trust_item",
-          "settings": {
-            "title": "Clean Formulas",
-            "description": "Skin-first, thoughtfully made"
-          }
-        }
-      },
-      "block_order": [
-        "trust_1",
-        "trust_2",
-        "trust_3",
-        "trust_4"
-      ],
+    "premium_blog": {
+      "type": "premium-blog",
       "settings": {
-        "heading": "Why shop with us",
+        "eyebrow": "Journal",
+        "heading": "From the Blog",
+        "subheading": "Tips, rituals, and stories for calmer, healthier skin.",
+        "posts_to_show": 3,
+        "show_excerpt": true,
+        "button_label": "Read More",
+        "image_ratio": "16/9",
         "background_color": "#f7f5f3",
-        "text_color": "#1c1917",
-        "padding_top": 40,
-        "padding_bottom": 40
-      }
-    },
-    "premium_newsletter": {
-      "type": "premium-newsletter",
-      "settings": {
-        "eyebrow": "Beauty Offers",
-        "heading": "Get exclusive deals",
-        "subheading": "Subscribe for updates and receive 10% off your first order.",
-        "email_placeholder": "Enter your email",
-        "button_label": "Subscribe",
-        "success_message": "Welcome \u2014 your glow starts here.",
-        "disclaimer": "By subscribing, you agree to receive marketing emails. Unsubscribe anytime.",
-        "background_color": "#1c1917",
-        "text_color": "#ffffff",
-        "button_background": "#ffffff",
-        "button_text_color": "#1c1917",
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
-    "premium_instagram": {
-      "type": "premium-instagram-feed",
-      "blocks": {
-        "ig_1": {
-          "type": "image",
-          "settings": {}
-        },
-        "ig_2": {
-          "type": "image",
-          "settings": {}
-        },
-        "ig_3": {
-          "type": "image",
-          "settings": {}
-        },
-        "ig_4": {
-          "type": "image",
-          "settings": {}
-        },
-        "ig_5": {
-          "type": "image",
-          "settings": {}
-        },
-        "ig_6": {
-          "type": "image",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "ig_1",
-        "ig_2",
-        "ig_3",
-        "ig_4",
-        "ig_5",
-        "ig_6"
-      ],
-      "settings": {
-        "eyebrow": "On Gram",
-        "heading": "Gentle beauty highlights",
-        "subheading": "Share your ritual with us \u2014 real skin, real moments.",
-        "instagram_handle": "@yourstore",
-        "columns": 6,
-        "columns_mobile": "3",
-        "background_color": "#ffffff",
         "text_color": "#1c1917",
         "padding_top": 72,
         "padding_bottom": 72
@@ -383,14 +267,12 @@
   },
   "order": [
     "premium_hero",
-    "premium_marquee",
-    "premium_featured_products",
-    "premium_collection_grid",
-    "premium_values",
-    "premium_philosophy",
-    "premium_reviews",
+    "premium_collection_tabs",
     "premium_trust_bar",
-    "premium_newsletter",
-    "premium_instagram"
+    "premium_bestsellers",
+    "premium_image_text",
+    "premium_video",
+    "premium_reviews",
+    "premium_blog"
   ]
 }

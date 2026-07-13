@@ -1,0 +1,258 @@
+<section
+  class="premium-section premium-video"
+  id="PremiumVideo-{{ section.id }}"
+  style="
+    background-color: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="page-width{% if section.settings.full_bleed %} premium-video__full{% endif %}">
+    <header class="premium-video__header">
+      {% if section.settings.eyebrow != blank %}
+        <span class="premium-section__eyebrow">{{ section.settings.eyebrow }}</span>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="premium-section__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.subheading != blank %}
+        <p class="premium-section__subheading">{{ section.settings.subheading }}</p>
+      {% endif %}
+    </header>
+
+    <div class="premium-video__frame" style="--premium-video-ratio: {{ section.settings.aspect_ratio }};">
+      {% if section.settings.video != blank %}
+        {{
+          section.settings.video
+          | video_tag:
+            autoplay: section.settings.autoplay,
+            loop: section.settings.loop,
+            muted: true,
+            controls: section.settings.show_controls,
+            image_size: '1920x',
+            class: 'premium-video__media'
+        }}
+      {% elsif section.settings.video_url != blank %}
+        {% assign video_id = section.settings.video_url.id %}
+        {% assign video_type = section.settings.video_url.type %}
+        <div class="premium-video__embed">
+          {% if video_type == 'youtube' %}
+            <iframe
+              src="https://www.youtube.com/embed/{{ video_id }}?rel=0&modestbranding=1{% if section.settings.autoplay %}&autoplay=1&mute=1{% endif %}{% if section.settings.loop %}&loop=1&playlist={{ video_id }}{% endif %}"
+              title="{{ section.settings.heading | escape }}"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          {% elsif video_type == 'vimeo' %}
+            <iframe
+              src="https://player.vimeo.com/video/{{ video_id }}?{% if section.settings.autoplay %}autoplay=1&muted=1&{% endif %}{% if section.settings.loop %}loop=1&{% endif %}title=0&byline=0&portrait=0"
+              title="{{ section.settings.heading | escape }}"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          {% endif %}
+        </div>
+      {% else %}
+        <div class="premium-video__placeholder">
+          {{ 'lifestyle-2' | placeholder_svg_tag }}
+          <p>Add a Shopify video or YouTube/Vimeo URL</p>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if section.settings.button_label != blank %}
+      <div class="premium-video__cta">
+        <a href="{{ section.settings.button_link }}" class="premium-btn premium-btn--primary">
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .premium-video__header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .premium-video__header .premium-section__subheading {
+    margin-inline: auto;
+  }
+
+  .premium-video__full {
+    width: min(1400px, calc(100% - 2rem));
+  }
+
+  .premium-video__frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+    background: var(--beauty-bg-soft, #f7f5f3);
+    aspect-ratio: var(--premium-video-ratio, 16 / 9);
+  }
+
+  .premium-video__media,
+  .premium-video__embed iframe,
+  .premium-video__placeholder svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border: 0;
+  }
+
+  .premium-video__embed {
+    position: absolute;
+    inset: 0;
+  }
+
+  .premium-video__placeholder {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: var(--beauty-muted, #6b6560);
+    text-align: center;
+  }
+
+  .premium-video__placeholder p {
+    position: absolute;
+    bottom: 1.25rem;
+    margin: 0;
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .premium-video__cta {
+    text-align: center;
+    margin-top: 1.75rem;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Premium Video",
+  "tag": "section",
+  "class": "premium-video-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Watch"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "See the ritual"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "A closer look at how our products fit into your everyday glow."
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Shopify-hosted video"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "YouTube or Vimeo URL",
+      "accept": ["youtube", "vimeo"]
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "label": "Aspect ratio",
+      "options": [
+        { "value": "16 / 9", "label": "Landscape 16:9" },
+        { "value": "4 / 5", "label": "Portrait 4:5" },
+        { "value": "1 / 1", "label": "Square" },
+        { "value": "21 / 9", "label": "Wide cinematic" }
+      ],
+      "default": "16 / 9"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_controls",
+      "label": "Show controls (Shopify video)",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "full_bleed",
+      "label": "Wider video frame",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop the look"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#f7f5f3"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#1c1917"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 72
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium Video"
+    }
+  ]
+}
+{% endschema %}

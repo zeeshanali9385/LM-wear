@@ -11,6 +11,7 @@
   "sections": {
     "premium_hero": {
       "type": "premium-hero",
+      "name": "Banner",
       "settings": {
         "eyebrow": "Sensitive Skin · Healthy Glow",
         "heading": "All-Day Hydration",
@@ -19,7 +20,7 @@
         "button_link": "shopify://collections/all",
         "button_style": "primary",
         "image": "shopify://shop_images/beauty-banner-right.png",
-        "image_alt": "",
+        "image_alt": "LNC beauty banner",
         "overlay_opacity": 40,
         "overlay_color": "#1c1917",
         "text_alignment": "left",
@@ -34,6 +35,7 @@
     },
     "premium_collection_tabs": {
       "type": "premium-collection-tabs",
+      "name": "Collection Tabs",
       "blocks": {
         "tab_skin": {
           "type": "tab",
@@ -82,6 +84,7 @@
     },
     "premium_trust_bar": {
       "type": "premium-trust-bar",
+      "name": "Trusted Points",
       "blocks": {
         "trust_1": {
           "type": "trust_item",
@@ -127,6 +130,7 @@
     },
     "premium_bestsellers": {
       "type": "premium-featured-products",
+      "name": "Best Sellers",
       "settings": {
         "eyebrow": "Customer Favorites",
         "heading": "Best Sellers",
@@ -146,6 +150,7 @@
     },
     "premium_image_text": {
       "type": "premium-philosophy",
+      "name": "Image with Text",
       "settings": {
         "eyebrow": "Our Story",
         "heading": "Beauty that feels honest",
@@ -162,6 +167,7 @@
     },
     "premium_video": {
       "type": "premium-video",
+      "name": "Video",
       "settings": {
         "eyebrow": "Watch",
         "heading": "See the ritual",
@@ -181,6 +187,7 @@
     },
     "premium_reviews": {
       "type": "premium-reviews",
+      "name": "Reviews Slider",
       "blocks": {
         "review_1": {
           "type": "review",
@@ -250,6 +257,7 @@
     },
     "premium_blog": {
       "type": "premium-blog",
+      "name": "Blogs",
       "settings": {
         "eyebrow": "Journal",
         "heading": "From the Blog",

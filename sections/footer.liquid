@@ -102,9 +102,15 @@
     </div>
 
     <div class="premium-footer__bottom">
-      <p class="premium-footer__copyright">
-        &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ section.settings.copyright_text }}
-      </p>
+      <div class="premium-footer__legal">
+        <p class="premium-footer__copyright">
+          &copy; {{ 'now' | date: '%Y' }} {{ section.settings.brand_name | default: shop.name }}. {{ section.settings.copyright_text }}
+        </p>
+        <p class="premium-footer__powered">
+          Powered by
+          <a href="https://zemrise.com" target="_blank" rel="noopener noreferrer">ZemRise Technology</a>
+        </p>
+      </div>
       {% if section.settings.show_payment_icons and shop.enabled_payment_types.size > 0 %}
         <ul class="premium-footer__payments" role="list">
           {% for type in shop.enabled_payment_types %}
@@ -141,7 +147,7 @@
       "type": "text",
       "id": "brand_name",
       "label": "Brand name",
-      "default": "LM Wear"
+      "default": "LNC"
     },
     {
       "type": "textarea",
